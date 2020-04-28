@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import config from "../config.json";
+//import config from "../config.json";
 import ErrorHandler from "./ErrorHandler";
 import "../App.css";
 import { Grid, Divider } from "@material-ui/core";
@@ -101,7 +101,7 @@ class Profile extends React.Component {
     console.log("USERNAME ", this.props.auth.user.username);
     try {
       const res = await axios.get(
-        `${config.api.invokeURL}/user/${this.props.auth.user.username}`
+        `${process.env.aws_invokeURL}/user/${this.props.auth.user.username}`
       );
       const profile = res.data;
       this.setState({ profile: profile });

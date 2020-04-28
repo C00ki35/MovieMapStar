@@ -1,4 +1,4 @@
-import { RAPI } from "../config.json";
+//import { RAPI } from "../config.json";
 const { extractTitleId } = require("./moviemanipulation");
 
 export const getMovieId = (movieTitle) => {
@@ -6,14 +6,11 @@ export const getMovieId = (movieTitle) => {
     method: "GET",
     headers: {
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
-      "x-rapidapi-key": RAPI.key,
+      "x-rapidapi-key": process.env.rapi,
     },
   })
     .then((response) => response.json())
     .then((response) => {
-      // console.log(response);
-      // console.log(response.results[0].id);
-
       return extractTitleId(response.results[0].id);
     })
     .catch((err) => {
@@ -29,7 +26,7 @@ export const getMovieLocations = (movieId) => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "imdb8.p.rapidapi.com",
-        "x-rapidapi-key": RAPI.key,
+        "x-rapidapi-key": process.env.rapi,
       },
     }
   )
@@ -54,7 +51,7 @@ export const getMovieLocationsInfo = (movieId) => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "imdb8.p.rapidapi.com",
-        "x-rapidapi-key": RAPI.key,
+        "x-rapidapi-key": process.env.rapi,
       },
     }
   )
@@ -73,12 +70,9 @@ export const getMovieLocationsInfo = (movieId) => {
           };
         }
       });
-      console.log(locationInfo);
       return locationInfo;
     })
     .catch((err) => {
       return err;
     });
 };
-
-//`https://imdb8.p.rapidapi.com/title/get-overview-details`

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ImageCard from "./ImageCard";
 import ErrorHandler from "./ErrorHandler";
 import aws from "aws-sdk";
-import config from "../config.json";
+//import config from "../config.json";
 import "typeface-roboto";
 import { Grid, Typography, Container } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -31,9 +31,9 @@ class Gallery extends Component {
   getImages = async () => {
     try {
       aws.config.update({
-        accessKeyId: config.aws.accessKeyId,
-        secretAccessKey: config.aws.secretAccessKey,
-        region: config.aws.region,
+        accessKeyId: process.env.aws_access_key,,
+        secretAccessKey: process.env.aws_secret_key,
+        region: process.env.aws_region,
       });
 
       const userFolder = `${this.props.auth.user.username}/`;
@@ -41,7 +41,7 @@ class Gallery extends Component {
 
       await s3
         .listObjectsV2({
-          Bucket: "movieappimg",
+          Bucket: process.env.aws_bucketname,
           Prefix: userFolder,
         })
         .promise()

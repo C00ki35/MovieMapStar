@@ -1,7 +1,7 @@
 import React from "react";
 import { Auth } from "aws-amplify";
 import axios from "axios";
-import config from "../config.json";
+//import config from "../config.json";
 import ErrorHandler from "./ErrorHandler";
 
 import {
@@ -80,7 +80,7 @@ class Register extends React.Component {
         genre2: genre2,
         genre3: genre3,
       };
-      await axios.post(`${config.api.invokeURL}/user`, params);
+      await axios.post(`${process.env.aws_invokeURL}/user`, params);
       this.props.auth.verifyUsername(username);
     } catch (error) {
       let err = null;
@@ -103,7 +103,7 @@ class Register extends React.Component {
         profile_id: profile_id,
         username: username,
       };
-      await axios.post(`${config.api.invokeURL}/profile/`, params);
+      await axios.post(`${process.env.aws_invokeURL}/profile/`, params);
     } catch (error) {
       let err = null;
       console.dir(error);

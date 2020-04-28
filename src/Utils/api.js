@@ -1,10 +1,10 @@
 import axios from "axios";
-import { GAPI } from "../config.json";
+//import { GAPI } from "../config.json";
 
 export const getLatLng = (address) => {
   return axios
     .get(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${GAPI.key}`
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.gapi}`
     )
     .then(({ data: { results } }) => {
       return results[0].geometry.location;
@@ -18,7 +18,7 @@ export const getAddress = (coordinate) => {
   return axios
     .get(
       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coordinate.lat}, ${coordinate.lng}
-      &key=${GAPI.key}`
+      &key=${process.env.gapi}`
     )
     .then(({ data: { results } }) => {
       return results[0].formatted_address;

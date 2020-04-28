@@ -6,7 +6,7 @@ import {
 } from "../Utils/movies";
 import * as api from "../Utils/api";
 import NewWrappedMap from "./NewMovieMap";
-import { GAPI } from "../config.json";
+//import { GAPI } from "../config.json";
 import { Button, TextField, Container, Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
@@ -145,7 +145,7 @@ class SearchMovie extends Component {
           }}
         >
           <NewWrappedMap
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${GAPI.key}`}
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.gapi}`}
             loadingElement={<div style={{ height: "100%" }} />}
             containerElement={<div style={{ height: "100%" }} />}
             mapElement={<div style={{ height: "100%" }} />}

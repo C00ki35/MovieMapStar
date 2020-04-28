@@ -14,7 +14,13 @@ class Usercamera extends Component {
     const username = this.props.auth.user.username;
     console.log("USERNAME ", username);
     const filename = `${Math.floor(Math.random() * 10000000000).toString()}`;
-    const config = { ...keys.aws, dirName: username };
+    const config = {
+      bucketName: process.env.aws_bucketname,
+      region: process.env.aws_region,
+      accessKeyId: process.env.aws_access_key,
+      secretAccessKey: process.env.aws_secret_key,
+      dirName: username,
+    };
 
     const file = new File([dataUri], filename, {
       type: ".jpg",
