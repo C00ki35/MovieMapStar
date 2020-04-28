@@ -1,7 +1,6 @@
 import React from "react";
 import { Auth } from "aws-amplify";
 import axios from "axios";
-//import config from "../config.json";
 import ErrorHandler from "./ErrorHandler";
 
 import {

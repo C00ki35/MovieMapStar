@@ -1,5 +1,4 @@
 import axios from "axios";
-//import { GAPI } from "../config.json";
 
 export const getLatLng = (address) => {
   return axios

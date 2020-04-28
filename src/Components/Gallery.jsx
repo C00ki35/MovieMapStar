@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ImageCard from "./ImageCard";
 import ErrorHandler from "./ErrorHandler";
 import aws from "aws-sdk";
-//import config from "../config.json";
 import "typeface-roboto";
 import { Grid, Typography, Container } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";

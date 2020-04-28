@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Camera, { FACING_MODES, IMAGE_TYPES } from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
 import ReactS3 from "react-s3";
-import keys from "../config.json";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 class Usercamera extends Component {

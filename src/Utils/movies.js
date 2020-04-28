@@ -1,4 +1,3 @@
-//import { RAPI } from "../config.json";
 const { extractTitleId } = require("./moviemanipulation");
 
 export const getMovieId = (movieTitle) => {

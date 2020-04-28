@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-//import config from "../config.json";
 import ErrorHandler from "./ErrorHandler";
 import "../App.css";
 import { Grid, Divider } from "@material-ui/core";
