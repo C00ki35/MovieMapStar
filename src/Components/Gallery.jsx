@@ -30,7 +30,7 @@ class Gallery extends Component {
   getImages = async () => {
     try {
       aws.config.update({
-        accessKeyId: process.env.aws_access_key,,
+        accessKeyId: process.env.aws_access_key,
         secretAccessKey: process.env.aws_secret_key,
         region: process.env.aws_region,
       });
