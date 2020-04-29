@@ -48,7 +48,6 @@ class RouteCalculator extends Component {
           ),
 
           waypoints: this.props.stops.map((stop) => {
-            // console.log(stop.lat);
             return {
               location: new window.google.maps.LatLng(stop.lat, stop.lng),
             };
@@ -57,13 +56,10 @@ class RouteCalculator extends Component {
           optimizeWaypoints: true,
         },
         (result, status) => {
-          // console.log("this is steps", result.routes[0].legs[0].steps);
-
           if (status === window.google.maps.DirectionsStatus.OK) {
             this.setState({
               directions: { ...result },
               textDirections: true,
-              // polyline: result.routes[0].overview_polyline,
             });
           } else {
             console.dir("console.dir", result);

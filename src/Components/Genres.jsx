@@ -70,22 +70,15 @@ class Genres extends React.Component {
     } else if (this.state.genres.includes(name)) {
       const newState = [...this.state.genres];
       newState.splice(newState.indexOf(name), 1);
-      this.setState({ genres: [...newState], error: "", [name]: "" }, () => {
-        console.log(this.state.genres);
-      });
+      this.setState({ genres: [...newState], error: "", [name]: "" }, () => {});
     } else {
-      this.setState(
-        (currentState) => {
-          return {
-            genres: [...currentState.genres, name],
-            error: "",
-            [name]: "#DB5375",
-          };
-        },
-        () => {
-          console.log(this.state.genres);
-        }
-      );
+      this.setState((currentState) => {
+        return {
+          genres: [...currentState.genres, name],
+          error: "",
+          [name]: "#DB5375",
+        };
+      });
     }
   };
 

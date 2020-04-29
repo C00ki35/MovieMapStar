@@ -2,11 +2,6 @@
   "name": "moviemapstar",
   "version": "0.1.0",
   "private": true,
-  "main": "index.js",
-  "engines": {
-    "node": "13.0.x",
-    "npm": "6.14.4"
-  },
   "dependencies": {
     "@aws-amplify/auth": "^3.2.2",
     "@material-ui/core": "^4.9.10",
@@ -54,5 +49,9 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^7.1.1"
+  },
+  "engines": {
+    "node": "13.0.x",
+    "npm": "6.14.4"
   }
 }

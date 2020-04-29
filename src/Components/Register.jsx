@@ -94,27 +94,27 @@ class Register extends React.Component {
     }
   };
 
-  addProfile = async (username) => {
-    const profile_id = Math.floor(Math.random() * 10000).toString();
+  // addProfile = async (username) => {
+  //   const profile_id = Math.floor(Math.random() * 10000).toString();
 
-    try {
-      const params = {
-        profile_id: profile_id,
-        username: username,
-      };
-      await axios.post(`${process.env.aws_invokeURL}/profile/`, params);
-    } catch (error) {
-      let err = null;
-      console.dir(error);
-      !error.message ? (err = { message: error }) : (err = error);
-      this.setState({
-        error: {
-          ...this.state.errors,
-          cognito: err,
-        },
-      });
-    }
-  };
+  //   try {
+  //     const params = {
+  //       profile_id: profile_id,
+  //       username: username,
+  //     };
+  //     await axios.post(`${process.env.aws_invokeURL}/profile/`, params);
+  //   } catch (error) {
+  //     let err = null;
+  //     console.dir(error);
+  //     !error.message ? (err = { message: error }) : (err = error);
+  //     this.setState({
+  //       error: {
+  //         ...this.state.errors,
+  //         cognito: err,
+  //       },
+  //     });
+  //   }
+  // };
 
   handleSubmit = async (event) => {
     event.preventDefault();

@@ -59,11 +59,7 @@ class Navbar extends Component {
 
       history.push("/");
       this.props.hideNav(true);
-    } catch (error) {
-      console.dir(error);
-      console.log(error);
-      console.log(error.message);
-    }
+    } catch (error) {}
   };
 
   render() {

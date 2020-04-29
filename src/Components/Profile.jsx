@@ -97,7 +97,6 @@ class Profile extends React.Component {
   };
 
   fetchProfile = async () => {
-    console.log("USERNAME ", this.props.auth.user.username);
     try {
       const res = await axios.get(
         `${process.env.aws_invokeURL}/user/${this.props.auth.user.username}`

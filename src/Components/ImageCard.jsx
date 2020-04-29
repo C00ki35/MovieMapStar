@@ -13,7 +13,7 @@ class ImageCard extends Component {
   getImage = () => {
     const s3 = new aws.S3();
     const params = {
-      Bucket: "movieappimg",
+      Bucket: process.env.aws_bucketname,
       Key: this.props.imageKey,
     };
 

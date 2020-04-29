@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Camera, { FACING_MODES, IMAGE_TYPES } from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
 import ReactS3 from "react-s3";
-import CssBaseline from "@material-ui/core/CssBaseline";
 
 class Usercamera extends Component {
   state = {
@@ -11,7 +10,6 @@ class Usercamera extends Component {
 
   handleTakePhoto = (dataUri) => {
     const username = this.props.auth.user.username;
-    console.log("USERNAME ", username);
     const filename = `${Math.floor(Math.random() * 10000000000).toString()}`;
     const config = {
       bucketName: process.env.aws_bucketname,
@@ -46,7 +44,6 @@ class Usercamera extends Component {
   render() {
     return (
       <div>
-        <CssBaseline />
         <Camera
           onTakePhoto={(dataUri) => {
             this.handleTakePhoto(dataUri);
