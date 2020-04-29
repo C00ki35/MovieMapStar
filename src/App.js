@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import Dashboard from "./Components/Dashboard";
 import Home from "./Components/Home";
 import Verify from "./Components/Verify";
