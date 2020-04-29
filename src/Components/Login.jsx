@@ -93,7 +93,7 @@ class Login extends React.Component {
   render() {
     const { classes } = this.props;
     {
-      console.log(process.env.TOKEN);
+      console.log(process.env.REACT_APP_MYTOKEN);
     }
     return (
       <Container component="main" maxWidth="xs">
