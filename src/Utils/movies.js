@@ -5,7 +5,7 @@ export const getMovieId = (movieTitle) => {
     method: "GET",
     headers: {
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
-      "x-rapidapi-key": process.env.rapi,
+      "x-rapidapi-key": process.env.REACT_APP_rapi,
     },
   })
     .then((response) => response.json())
@@ -25,7 +25,7 @@ export const getMovieLocations = (movieId) => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "imdb8.p.rapidapi.com",
-        "x-rapidapi-key": process.env.rapi,
+        "x-rapidapi-key": process.env.REACT_APP_rapi,
       },
     }
   )
@@ -50,7 +50,7 @@ export const getMovieLocationsInfo = (movieId) => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "imdb8.p.rapidapi.com",
-        "x-rapidapi-key": process.env.rapi,
+        "x-rapidapi-key": process.env.REACT_APP_rapi,
       },
     }
   )

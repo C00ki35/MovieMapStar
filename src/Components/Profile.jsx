@@ -98,7 +98,7 @@ class Profile extends React.Component {
   fetchProfile = async () => {
     try {
       const res = await axios.get(
-        `${process.env.aws_invokeURL}/user/${this.props.auth.user.username}`
+        `${process.env.REACT_APP_aws_invokeURL}/user/${this.props.auth.user.username}`
       );
       const profile = res.data;
       this.setState({ profile: profile });

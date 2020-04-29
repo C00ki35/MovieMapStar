@@ -10,9 +10,9 @@ import theme from "./Components/theme";
 Amplify.configure({
   Auth: {
     mandatorySignId: true,
-    region: process.env.cognito_region,
-    userPoolId: process.env.user_pool_id,
-    userPoolWebClientId: process.env.app_client_id,
+    region: process.env.REACT_APP_cognito_region,
+    userPoolId: process.env.REACT_APP_user_pool_id,
+    userPoolWebClientId: process.env.REACT_APP_app_client_id,
   },
 });
 

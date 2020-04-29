@@ -3,7 +3,7 @@ import axios from "axios";
 export const getLatLng = (address) => {
   return axios
     .get(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.gapi}`
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_gapi}`
     )
     .then(({ data: { results } }) => {
       return results[0].geometry.location;
@@ -17,7 +17,7 @@ export const getAddress = (coordinate) => {
   return axios
     .get(
       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coordinate.lat}, ${coordinate.lng}
-      &key=${process.env.gapi}`
+      &key=${process.env.REACT_APP_gapi}`
     )
     .then(({ data: { results } }) => {
       return results[0].formatted_address;

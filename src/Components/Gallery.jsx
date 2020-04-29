@@ -30,9 +30,9 @@ class Gallery extends Component {
   getImages = async () => {
     try {
       aws.config.update({
-        accessKeyId: process.env.aws_access_key,
-        secretAccessKey: process.env.aws_secret_key,
-        region: process.env.aws_region,
+        accessKeyId: process.env.REACT_APP_aws_access_key,
+        secretAccessKey: process.env.REACT_APP_aws_secret_key,
+        region: process.env.REACT_APP_aws_region,
       });
 
       const userFolder = `${this.props.auth.user.username}/`;

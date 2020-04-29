@@ -12,10 +12,10 @@ class Usercamera extends Component {
     const username = this.props.auth.user.username;
     const filename = `${Math.floor(Math.random() * 10000000000).toString()}`;
     const config = {
-      bucketName: process.env.aws_bucketname,
-      region: process.env.aws_region,
-      accessKeyId: process.env.aws_access_key,
-      secretAccessKey: process.env.aws_secret_key,
+      bucketName: process.env.REACT_APP_aws_bucketname,
+      region: process.env.REACT_APP_aws_region,
+      accessKeyId: process.env.REACT_APP_aws_access_key,
+      secretAccessKey: process.env.REACT_APP_aws_secret_key,
       dirName: username,
     };
 
