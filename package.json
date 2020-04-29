@@ -1,6 +1,7 @@
 {
   "name": "moviemapstar",
   "version": "0.1.0",
+  "main": "index.js",
   "engines": {
     "node": "13.0.x"
   },
@@ -31,7 +32,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test-utils": "mocha src/Utils/moviemanipulation.spec.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
