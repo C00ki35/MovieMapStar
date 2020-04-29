@@ -80,9 +80,9 @@ class Navbar extends Component {
             <Link color="secondary" href="/profile">
               Profile
             </Link>
-            {/* <Link color="secondary" href="/" onClick={this.handleLogOut}>
+            <Link color="secondary" href="/" onClick={this.handleLogOut}>
               Log Out
-            </Link> */}
+            </Link>
           </Grid>
         </div>
       </Container>

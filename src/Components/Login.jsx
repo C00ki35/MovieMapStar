@@ -92,6 +92,9 @@ class Login extends React.Component {
 
   render() {
     const { classes } = this.props;
+    {
+      console.log(process.env.TOKEN);
+    }
     return (
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>

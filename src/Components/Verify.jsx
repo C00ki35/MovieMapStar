@@ -40,7 +40,7 @@ class Verify extends Component {
   handleClick = (event) => {
     Auth.confirmSignUp(this.props.auth.username, this.state.verifyNumber)
       .then((data) => {
-        this.props.history.push("/login");
+        this.props.history.push("/");
       })
 
       .catch((error) => {
