@@ -88,9 +88,7 @@ class SearchMovie extends Component {
 
   render() {
     const { classes } = this.props;
-    {
-      console.log("HERE BE THE ITEM", process.env.REACT_APP_gapi);
-    }
+
     return (
       <Container component="main" maxWidth="xs">
         <Grid container className={classes.searchBar} xs={12}>
@@ -147,7 +145,7 @@ class SearchMovie extends Component {
           }}
         >
           <NewWrappedMap
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_gapi}`}
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_API_KEY}`}
             loadingElement={<div style={{ height: "100%" }} />}
             containerElement={<div style={{ height: "100%" }} />}
             mapElement={<div style={{ height: "100%" }} />}
