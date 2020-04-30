@@ -26,7 +26,6 @@ const useStyles = (theme) => ({
   },
   heroContent: {
     background: "linear-gradient(30deg, #A8D0DB 30%, #5E548E 95%)",
-    //backgroundColor: "#E6DBD0",
     padding: theme.spacing(4, 0, 3),
   },
   media: {
@@ -102,7 +101,6 @@ class Profile extends React.Component {
       );
       const profile = res.data;
       this.setState({ profile: profile });
-      console.log("THIS IS FROM THE DB ", this.state.profile);
     } catch (error) {
       const message =
         "We have not being able to fetch your profile, please log out and try again.";

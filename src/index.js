@@ -7,6 +7,8 @@ import SimpleReactLightbox from "simple-react-lightbox";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./Components/theme";
 
+require("dotenv").config();
+
 Amplify.configure({
   Auth: {
     mandatorySignId: true,
