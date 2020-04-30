@@ -88,6 +88,9 @@ class SearchMovie extends Component {
 
   render() {
     const { classes } = this.props;
+    {
+      console.log("HERE BE THE ITEM", process.env.REACT_APP_gapi);
+    }
     return (
       <Container component="main" maxWidth="xs">
         <Grid container className={classes.searchBar} xs={12}>
