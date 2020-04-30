@@ -94,28 +94,6 @@ class Register extends React.Component {
     }
   };
 
-  // addProfile = async (username) => {
-  //   const profile_id = Math.floor(Math.random() * 10000).toString();
-
-  //   try {
-  //     const params = {
-  //       profile_id: profile_id,
-  //       username: username,
-  //     };
-  //     await axios.post(`${process.env.aws_invokeURL}/profile/`, params);
-  //   } catch (error) {
-  //     let err = null;
-  //     console.dir(error);
-  //     !error.message ? (err = { message: error }) : (err = error);
-  //     this.setState({
-  //       error: {
-  //         ...this.state.errors,
-  //         cognito: err,
-  //       },
-  //     });
-  //   }
-  // };
-
   handleSubmit = async (event) => {
     event.preventDefault();
     this.clearErrorState();
@@ -160,7 +138,7 @@ class Register extends React.Component {
           </Typography>
           <form onSubmit={this.handleSubmit} className={classes.form}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   InputProps={{
                     className: classes.input,
@@ -177,7 +155,7 @@ class Register extends React.Component {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
                   InputProps={{
                     className: classes.input,

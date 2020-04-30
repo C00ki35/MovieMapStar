@@ -41,6 +41,10 @@ class Usercamera extends Component {
 
   handleCameraStop = () => {};
 
+  componentDidMount() {
+    this.props.auth.menuToggle(true);
+  }
+
   render() {
     return (
       <div>

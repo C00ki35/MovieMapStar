@@ -111,6 +111,7 @@ class Profile extends React.Component {
   };
 
   componentDidMount() {
+    this.props.auth.menuToggle(true);
     this.fetchProfile();
   }
 

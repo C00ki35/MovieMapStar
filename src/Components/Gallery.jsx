@@ -57,6 +57,7 @@ class Gallery extends Component {
   };
 
   componentDidMount() {
+    this.props.auth.menuToggle(true);
     this.getImages();
   }
 

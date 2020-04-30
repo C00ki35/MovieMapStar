@@ -17,11 +17,11 @@ class App extends Component {
   state = {
     isAuthenticated: false,
     isAuthenticating: true,
-    isNavBarHidden: true,
     user: null,
     movieId: null,
     genres: "",
     username: "",
+    menuVisible: false,
   };
 
   setAuthStatus = (authenticated) => {
@@ -54,18 +54,23 @@ class App extends Component {
     });
   };
 
+  hideMenu = (menu) => {
+    this.setState({ menuVisible: true });
+  };
+
   render() {
     const authProps = {
       isAuthenticated: this.state.isAuthenticated,
       user: this.state.user,
       isNavBarHidden: this.state.isNavBarHidden,
-      hideNav: this.hideNav,
       setAuthenticated: this.setAuthStatus,
       userInfo: this.setUser,
       userGenres: this.setGenres,
       verifyUsername: this.setUsername,
       genres: this.state.genres,
       username: this.state.username,
+      menuToggle: this.hideMenu,
+      menuVisible: this.state.menuVisible,
     };
 
     return (
@@ -73,9 +78,11 @@ class App extends Component {
         <div className={"App"}>
           <Router>
             <div>
-              <ViewToggler>
-                <Navbar auth={authProps} />
-              </ViewToggler>
+              {this.state.menuVisible ? (
+                <ViewToggler>
+                  <Navbar auth={authProps} />
+                </ViewToggler>
+              ) : null}
 
               <Switch primary={false}>
                 <Route

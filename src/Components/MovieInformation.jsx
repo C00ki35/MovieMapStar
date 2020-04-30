@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { getMovieLocationsInfo } from '../Utils/movies';
-import MovieCard from './MovieCard';
+import React, { Component } from "react";
+import { getMovieLocationsInfo } from "../Utils/movies";
+import MovieCard from "./MovieCard";
 
 class MovieInformation extends Component {
   state = { movieInfo: [], error: false };

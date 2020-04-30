@@ -96,7 +96,6 @@ class Login extends React.Component {
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <ErrorHandler formerrors={this.state.errors} />
-
           <img
             style={{ width: "150", height: "160px" }}
             src={require("./images/map.png")}

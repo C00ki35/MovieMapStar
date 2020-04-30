@@ -58,7 +58,6 @@ class Navbar extends Component {
       this.props.auth.userInfo(null);
 
       history.push("/");
-      this.props.hideNav(true);
     } catch (error) {}
   };
 
