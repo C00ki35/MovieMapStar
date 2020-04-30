@@ -88,7 +88,7 @@ class SearchMovie extends Component {
 
   render() {
     const { classes } = this.props;
-
+    const API_KEY = process.env.REACT_APP_API_KEY;
     return (
       <Container component="main" maxWidth="xs">
         <Grid container className={classes.searchBar} xs={12}>
@@ -145,7 +145,7 @@ class SearchMovie extends Component {
           }}
         >
           <NewWrappedMap
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_API_KEY}`}
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${API_KEY}`}
             loadingElement={<div style={{ height: "100%" }} />}
             containerElement={<div style={{ height: "100%" }} />}
             mapElement={<div style={{ height: "100%" }} />}
