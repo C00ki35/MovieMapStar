@@ -40,7 +40,7 @@ class Gallery extends Component {
 
       await s3
         .listObjectsV2({
-          Bucket: process.env.aws_bucketname,
+          Bucket: process.env.REACT_APP_aws_bucketname,
           Prefix: userFolder,
         })
         .promise()
