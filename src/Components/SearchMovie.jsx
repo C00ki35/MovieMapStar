@@ -9,6 +9,7 @@ import NewWrappedMap from "./NewMovieMap";
 import { Button, TextField, Container, Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
+import Loading from "./Loading";
 
 const useStyles = (theme) => ({
   searchBox: {
@@ -116,22 +117,20 @@ class SearchMovie extends Component {
                   Find Film Locations
                 </Button>
               </Grid>
-              {this.state.movieId && !this.state.error && (
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  id="movie-info"
-                  onClick={this.handleClick}
-                >
-                  View Movie Info
-                </Button>
-              )}
-            </form>{" "}
-            {this.state.isLoading && !this.state.error && (
-              <>Please wait while your film locations load</>
-            )}
+              {/* {this.state.movieId && !this.state.error && (
+                // <Button
+                //   color="primary"
+                //   fullWidth
+                //   variant="contained"
+                //   id="movie-info"
+                //   onClick={this.handleClick}
+                // >
+                //   View Movie Info
+                // </Button>
+              )} */}
+            </form>
             {this.state.error && (
-              <>Houston, we have a problem. Please try again...</>
+              <div>Houston, we have a problem. Please try again...</div>
             )}
           </Typography>
         </Grid>
@@ -144,14 +143,20 @@ class SearchMovie extends Component {
             alignItems: "center",
           }}
         >
-          <NewWrappedMap
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${API_KEY}`}
-            loadingElement={<div style={{ height: "100%" }} />}
-            containerElement={<div style={{ height: "100%" }} />}
-            mapElement={<div style={{ height: "100%" }} />}
-            coordinates={this.state.coordinates}
-            movieInfo={this.state.movieInfo}
-          />
+          {this.state.isLoading && !this.state.error ? (
+            <div>
+              <Loading />
+            </div>
+          ) : (
+            <NewWrappedMap
+              googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${API_KEY}`}
+              loadingElement={<div style={{ height: "100%" }} />}
+              containerElement={<div style={{ height: "100%" }} />}
+              mapElement={<div style={{ height: "100%" }} />}
+              coordinates={this.state.coordinates}
+              movieInfo={this.state.movieInfo}
+            />
+          )}
         </div>
       </Container>
     );

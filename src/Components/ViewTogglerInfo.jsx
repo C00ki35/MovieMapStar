@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
+import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
 
 class ViewTogglerInfo extends Component {
   state = { isVisible: true };
@@ -13,11 +13,13 @@ class ViewTogglerInfo extends Component {
     return (
       <>
         <Button
+          fullwidth
+          color="primary"
           variant="contained"
           id="movie-info-search"
           onClick={this.handleClick}
         >
-          {this.state.isVisible ? 'Hide movie info' : 'Show movie info'}
+          {this.state.isVisible ? "Hide movie info" : "Show movie info"}
         </Button>
         {this.state.isVisible && this.props.children}
       </>
