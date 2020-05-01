@@ -5,6 +5,7 @@ import { Grid, Divider } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Loading from "./Loading";
 
 const useStyles = (theme) => ({
   root: {
@@ -92,6 +93,7 @@ class Profile extends React.Component {
     profile: {},
     genres: [],
     error: null,
+    isLoading: true,
   };
 
   fetchProfile = async () => {
@@ -100,7 +102,7 @@ class Profile extends React.Component {
         `${process.env.REACT_APP_aws_invokeURL}/user/${this.props.auth.user.username}`
       );
       const profile = res.data;
-      this.setState({ profile: profile });
+      this.setState({ profile: profile, isLoading: false });
     } catch (error) {
       const message =
         "We have not being able to fetch your profile, please log out and try again.";
@@ -126,136 +128,139 @@ class Profile extends React.Component {
     return (
       <>
         <ErrorHandler apierrors={this.state.error} />
-
-        <main>
-          <div className={classes.mainbg}>
-            <div className={classes.heroContent}>
-              <Container maxWidth="xs">
-                <Typography
-                  component="h4"
-                  variant="h4"
-                  align="center"
-                  gutterBottom
-                >
-                  <div style={{ textAlign: "center", fontSize: "1.5em" }}>
-                    {`Hello ${this.state.profile.username}`}{" "}
-                  </div>
-                </Typography>
-                <Grid className={classes.avatarInfo} maxWidth="xs">
-                  <Grid item xs={5}>
-                    <div className={classes.root}>
-                      <img
-                        style={{
-                          width: "120px",
-                          height: "120px",
-                        }}
-                        src={require("./images/starw.png")}
-                        alt="avatar"
-                      />
-                    </div>
-                  </Grid>
-                  <Grid className={classes.rank} item xs={6}>
+        {this.state.isLoading ? (
+          <Loading />
+        ) : (
+          <main>
+            <div className={classes.mainbg}>
+              <div className={classes.heroContent}>
+                <Container maxWidth="xs">
+                  <Typography
+                    component="h4"
+                    variant="h4"
+                    align="center"
+                    gutterBottom
+                  >
                     <div style={{ textAlign: "center", fontSize: "1.5em" }}>
-                      Current ranking:
+                      {`Hello ${this.state.profile.username}`}{" "}
                     </div>
-                    <div className={classes.badgeArea}>
+                  </Typography>
+                  <Grid className={classes.avatarInfo} maxWidth="xs">
+                    <Grid item xs={5}>
                       <div className={classes.root}>
                         <img
-                          style={{ width: "60px", height: "80px" }}
-                          src={require("./images/currentRank.svg")}
-                          alt="medal"
+                          style={{
+                            width: "120px",
+                            height: "120px",
+                          }}
+                          src={require("./images/starw.png")}
+                          alt="avatar"
                         />
                       </div>
-                      <div style={{ textAlign: "center", fontSize: "5em" }}>
-                        67
+                    </Grid>
+                    <Grid className={classes.rank} item xs={6}>
+                      <div style={{ textAlign: "center", fontSize: "1.5em" }}>
+                        Current ranking:
                       </div>
-                    </div>
+                      <div className={classes.badgeArea}>
+                        <div className={classes.root}>
+                          <img
+                            style={{ width: "60px", height: "80px" }}
+                            src={require("./images/currentRank.svg")}
+                            alt="medal"
+                          />
+                        </div>
+                        <div style={{ textAlign: "center", fontSize: "5em" }}>
+                          67
+                        </div>
+                      </div>
+                    </Grid>
                   </Grid>
+                </Container>
+              </div>
+
+              <Container component="main" maxWidth="xs">
+                <Grid
+                  className={classes.sectionheader}
+                  color="primary"
+                  item
+                  xs={12}
+                >
+                  <Divider />
+                  <Typography className={classes.favourite} component="h6">
+                    Favourite Films
+                  </Typography>
+                </Grid>
+                <Grid container xs={12}>
+                  {cards.map((card, index) => {
+                    return (
+                      <Grid item xs={4}>
+                        <img
+                          className={classes.genreImage}
+                          src={`https://pgcdigit.co.uk/movieappimages/${card}.jpg`}
+                          alt="avatar"
+                        />
+                      </Grid>
+                    );
+                  })}
                 </Grid>
               </Container>
+              <div className={classes.badges}>
+                <Grid className={classes.badgeItems} container xs={12}>
+                  <Grid className={classes.badge} xs={3}>
+                    <img
+                      width="40px"
+                      src={require("./images/popcom.png")}
+                      alt="badge"
+                    />
+                  </Grid>
+                  <Grid className={classes.visitInfo} xs={7}>
+                    First person to get here!
+                  </Grid>
+                </Grid>
+
+                <Grid className={classes.badgeItems} container xs={12}>
+                  <Grid className={classes.badge} xs={3}>
+                    <img
+                      width="40px"
+                      src={require("./images/jv.png")}
+                      alt="badge"
+                    />
+                  </Grid>
+                  <Grid className={classes.visitInfo} xs={7}>
+                    Visited a Horror location!
+                  </Grid>
+                </Grid>
+
+                <Grid className={classes.badgeItems} container xs={12}>
+                  <Grid className={classes.badge} xs={3}>
+                    <img
+                      width="40px"
+                      src={require("./images/aircraft-engine.png")}
+                      alt="badge"
+                    />
+                  </Grid>
+                  <Grid className={classes.visitInfo} xs={7}>
+                    Visted over 40 locations
+                  </Grid>
+                </Grid>
+
+                <Grid className={classes.badgeItems} container xs={12}>
+                  <Grid className={classes.badge} xs={3}>
+                    <img
+                      width="40px"
+                      src={require("./images/icon1.ico")}
+                      alt="avatar"
+                    />
+                  </Grid>
+                  <Grid className={classes.visitInfo} xs={7}>
+                    Visited most of something
+                  </Grid>
+                </Grid>
+              </div>
             </div>
-
-            <Container component="main" maxWidth="xs">
-              <Grid
-                className={classes.sectionheader}
-                color="primary"
-                item
-                xs={12}
-              >
-                <Divider />
-                <Typography className={classes.favourite} component="h6">
-                  Favourite Films
-                </Typography>
-              </Grid>
-              <Grid container xs={12}>
-                {cards.map((card, index) => {
-                  return (
-                    <Grid item xs={4}>
-                      <img
-                        className={classes.genreImage}
-                        src={`https://pgcdigit.co.uk/movieappimages/${card}.jpg`}
-                        alt="avatar"
-                      />
-                    </Grid>
-                  );
-                })}
-              </Grid>
-            </Container>
-            <div className={classes.badges}>
-              <Grid className={classes.badgeItems} container xs={12}>
-                <Grid className={classes.badge} xs={3}>
-                  <img
-                    width="40px"
-                    src={require("./images/popcom.png")}
-                    alt="badge"
-                  />
-                </Grid>
-                <Grid className={classes.visitInfo} xs={7}>
-                  First person to get here!
-                </Grid>
-              </Grid>
-
-              <Grid className={classes.badgeItems} container xs={12}>
-                <Grid className={classes.badge} xs={3}>
-                  <img
-                    width="40px"
-                    src={require("./images/jv.png")}
-                    alt="badge"
-                  />
-                </Grid>
-                <Grid className={classes.visitInfo} xs={7}>
-                  Visited a Horror location!
-                </Grid>
-              </Grid>
-
-              <Grid className={classes.badgeItems} container xs={12}>
-                <Grid className={classes.badge} xs={3}>
-                  <img
-                    width="40px"
-                    src={require("./images/aircraft-engine.png")}
-                    alt="badge"
-                  />
-                </Grid>
-                <Grid className={classes.visitInfo} xs={7}>
-                  Visted over 40 locations
-                </Grid>
-              </Grid>
-
-              <Grid className={classes.badgeItems} container xs={12}>
-                <Grid className={classes.badge} xs={3}>
-                  <img
-                    width="40px"
-                    src={require("./images/icon1.ico")}
-                    alt="avatar"
-                  />
-                </Grid>
-                <Grid className={classes.visitInfo} xs={7}>
-                  Visited most of something
-                </Grid>
-              </Grid>
-            </div>
-          </div>
-        </main>
+          </main>
+        )}
       </>
     );
   }

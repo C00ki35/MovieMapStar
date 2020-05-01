@@ -21,6 +21,18 @@ const useStyles = (theme) => ({
     flexDirection: "column",
     marginBottom: theme.spacing(1),
   },
+  movieInfo: {
+    marginBottom: theme.spacing(1),
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "green",
+  },
+  poster: {
+    display: "flex",
+    justifyContent: "center",
+  },
 });
 
 class SearchMovie extends Component {
@@ -32,6 +44,7 @@ class SearchMovie extends Component {
     error: null,
     isLoading: false,
     fieldError: false,
+    movieInformation: "",
   };
 
   handleClick = (event) => {
@@ -49,6 +62,10 @@ class SearchMovie extends Component {
     this.setState({ movieTitle: value });
   };
 
+  setFilmInfo = (film) => {
+    this.setState({ movieInformation: film });
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
     if (!this.state.movieTitle.length) {
@@ -56,7 +73,7 @@ class SearchMovie extends Component {
     } else {
       this.setState({ isLoading: true, fieldError: false, error: false });
 
-      getMovieId(this.state.movieTitle)
+      getMovieId(this.state.movieTitle, this.setFilmInfo)
         .then((movieId) => {
           this.setState({ movieId });
           getMovieLocations(movieId)
@@ -117,24 +134,13 @@ class SearchMovie extends Component {
                   Find Film Locations
                 </Button>
               </Grid>
-              {/* {this.state.movieId && !this.state.error && (
-                // <Button
-                //   color="primary"
-                //   fullWidth
-                //   variant="contained"
-                //   id="movie-info"
-                //   onClick={this.handleClick}
-                // >
-                //   View Movie Info
-                // </Button>
-              )} */}
             </form>
             {this.state.error && (
               <div>Houston, we have a problem. Please try again...</div>
             )}
           </Typography>
         </Grid>
-
+        {console.log(this.state.movieInformation)}
         <div
           style={{
             width: "100%",
@@ -148,14 +154,36 @@ class SearchMovie extends Component {
               <Loading />
             </div>
           ) : (
-            <NewWrappedMap
-              googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${API_KEY}`}
-              loadingElement={<div style={{ height: "100%" }} />}
-              containerElement={<div style={{ height: "100%" }} />}
-              mapElement={<div style={{ height: "100%" }} />}
-              coordinates={this.state.coordinates}
-              movieInfo={this.state.movieInfo}
-            />
+            <>
+              {this.state.movieId && !this.state.error && (
+                <Container
+                  className={classes.movieInfo}
+                  component="main"
+                  maxWidth="xs"
+                >
+                  <Grid item xs={6}>
+                    {this.state.movieInformation.title}
+                  </Grid>
+                  <Grid className={classes.poster} item xs={6}>
+                    <img
+                      src={this.state.movieInformation.image.url}
+                      alt={`$this.state.movieInformation.title} poster`}
+                      style={{
+                        width: "60px",
+                      }}
+                    />
+                  </Grid>
+                </Container>
+              )}
+              <NewWrappedMap
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${API_KEY}`}
+                loadingElement={<div style={{ height: "100%" }} />}
+                containerElement={<div style={{ height: "100%" }} />}
+                mapElement={<div style={{ height: "100%" }} />}
+                coordinates={this.state.coordinates}
+                movieInfo={this.state.movieInfo}
+              />
+            </>
           )}
         </div>
       </Container>

@@ -19,7 +19,7 @@ class ViewTogglerInfo extends Component {
           id="movie-info-search"
           onClick={this.handleClick}
         >
-          {this.state.isVisible ? "Hide movie info" : "Show movie info"}
+          {this.state.isVisible ? "Show movie info" : "Hide movie info"}
         </Button>
         {this.state.isVisible && this.props.children}
       </>

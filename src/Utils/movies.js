@@ -1,6 +1,6 @@
 const { extractTitleId } = require("./moviemanipulation");
 
-export const getMovieId = (movieTitle) => {
+export const getMovieId = (movieTitle, setFilmFunction) => {
   return fetch(`https://imdb8.p.rapidapi.com/title/find?q=${movieTitle}`, {
     method: "GET",
     headers: {
@@ -10,6 +10,7 @@ export const getMovieId = (movieTitle) => {
   })
     .then((response) => response.json())
     .then((response) => {
+      setFilmFunction(response.results[0]);
       return extractTitleId(response.results[0].id);
     })
     .catch((err) => {
