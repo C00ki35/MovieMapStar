@@ -23,6 +23,7 @@ class ViewTogglerDirections extends Component {
             ? "Hide text directions"
             : "Show text directions"}
         </Button>
+        {console.log(this.props.children)}
         {this.state.isVisible && this.props.children}
       </>
     );

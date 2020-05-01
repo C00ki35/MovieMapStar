@@ -12,7 +12,6 @@ class RouteCalculator extends Component {
     movieInfo: null,
   };
 
-  // panelUpdate = () => {}
   componentDidMount() {
     this.setState({ userLocation: this.props.userLocation });
   }
@@ -29,7 +28,9 @@ class RouteCalculator extends Component {
       this.props.stops !== prevProps.stops
     ) {
       if (this.state.directions !== prevState.directions) {
-        this.setState({ textDirections: false });
+        this.setState({
+          textDirections: false,
+        });
       }
 
       this.setState({ directions: null });
@@ -58,7 +59,7 @@ class RouteCalculator extends Component {
         (result, status) => {
           if (status === window.google.maps.DirectionsStatus.OK) {
             this.setState({
-              directions: { ...result },
+              directions: { ...result, result },
               textDirections: true,
             });
           } else {
@@ -75,19 +76,18 @@ class RouteCalculator extends Component {
         {this.state.directions && (
           <DirectionsRenderer
             defaultDirections={this.state.directions}
+            panel={(document.getElementById("panel").innerHTML = "")}
             panel={document.getElementById("panel")}
           />
         )}
-        <ViewTogglerDirections>
-          {this.state.textDirections && <div id="panel"></div>}
-        </ViewTogglerDirections>
+        {this.state.textDirections && <div id="panel"></div>}
 
-        <ViewTogglerInfo>
+        {/* <ViewTogglerInfo>
           {this.state.movieInfo &&
             this.state.movieInfo.map((info) => {
               return <MovieCard key={info.movieLocation} {...info} />;
             })}
-        </ViewTogglerInfo>
+        </ViewTogglerInfo> */}
       </div>
     );
   }

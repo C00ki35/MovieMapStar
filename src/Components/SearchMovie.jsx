@@ -44,7 +44,6 @@ class SearchMovie extends Component {
     error: null,
     isLoading: false,
     fieldError: false,
-    movieInformation: "",
   };
 
   handleClick = (event) => {
@@ -170,6 +169,7 @@ class SearchMovie extends Component {
                       alt={`$this.state.movieInformation.title} poster`}
                       style={{
                         width: "60px",
+                        height: "90px",
                       }}
                     />
                   </Grid>
