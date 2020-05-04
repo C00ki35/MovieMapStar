@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Container, Grid } from "@material-ui/core";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import CloseIcon from "@material-ui/icons/Close";
+import "../index.css";
 class ViewToggler extends Component {
   state = { isVisible: false };
 
@@ -16,7 +17,13 @@ class ViewToggler extends Component {
       <div style={{ backgroundColor: "#041B15", width: "100%", height: "30%" }}>
         <Container component="main" maxWidth="xs">
           <Grid container xs={12}>
-            <Grid item xs={3}>
+            <Grid
+              item
+              xs={2}
+              style={{
+                display: "flex",
+              }}
+            >
               <Button onClick={this.handleClick}>
                 {this.state.isVisible ? (
                   <CloseIcon fontSize="large" color="secondary" />
@@ -27,7 +34,7 @@ class ViewToggler extends Component {
             </Grid>
             <Grid
               item
-              xs={3}
+              xs={8}
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -62,19 +69,16 @@ class ViewToggler extends Component {
             </Grid>
             <Grid
               item
-              xs={3}
+              xs={2}
               style={{
                 textAlign: "center",
                 paddingTop: "15px",
               }}
             >
-              <img
-                style={{ width: "40px", height: "40px" }}
-                src={require("./images/starw.png")}
-                alt="Avatar"
-              />
+              <span class="material-icons md-light  md-36">account_circle</span>
             </Grid>
           </Grid>
+
           <Grid item xs={12}>
             {this.state.isVisible && this.props.children}
           </Grid>

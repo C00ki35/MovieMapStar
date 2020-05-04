@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { DirectionsRenderer } from "react-google-maps";
-import MovieCard from "./MovieCard";
-import ViewTogglerDirections from "./ViewTogglerDirections";
-import ViewTogglerInfo from "./ViewTogglerInfo";
 
 class RouteCalculator extends Component {
   state = {
@@ -81,13 +78,6 @@ class RouteCalculator extends Component {
           />
         )}
         {this.state.textDirections && <div id="panel"></div>}
-
-        {/* <ViewTogglerInfo>
-          {this.state.movieInfo &&
-            this.state.movieInfo.map((info) => {
-              return <MovieCard key={info.movieLocation} {...info} />;
-            })}
-        </ViewTogglerInfo> */}
       </div>
     );
   }

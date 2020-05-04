@@ -20,11 +20,12 @@ class Posters extends Component {
         ? (loadingClass = "loading")
         : (loadingClass = "loading-fadeOut");
     }
+
     return (
       <div className={"imagebox"}>
         <div className={"poster-image"}>
           <img
-            src={`https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg`}
+            src={`https://www.pgcdigit.co.uk/movieappimages/${this.props.postergenre}.jpg`}
             width="80px"
             height="120px"
             onLoad={this.handleImageLoaded}

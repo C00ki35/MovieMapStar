@@ -3,7 +3,13 @@ import "../index.css";
 class ImageLoader extends Component {
   render() {
     return (
-      <div className="lds-ripple-image">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
         <div></div>
         <div></div>
       </div>

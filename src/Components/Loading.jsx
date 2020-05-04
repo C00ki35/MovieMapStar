@@ -21,7 +21,13 @@ class Loading extends Component {
               justifyContent: "center",
             }}
           >
-            <div className="lds-ripple">
+            <div class="lds-roller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
               <div></div>
               <div></div>
             </div>

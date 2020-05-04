@@ -64,21 +64,8 @@ class ImageCard extends Component {
                   padding: "4px",
                 }}
               >
-                <img
-                  alt={"share icon"}
-                  src={require("./images/share.png")}
-                  style={{ width: "15px" }}
-                />
-                <img
-                  alt={"share icon"}
-                  src={require("./images/instagram.png")}
-                  style={{ width: "15px" }}
-                />
-                <img
-                  alt={"share icon"}
-                  src={require("./images/whatsapp.png")}
-                  style={{ width: "15px" }}
-                />
+                <span class="material-icons">thumb_up_alt</span>
+                <span class="material-icons">share</span>
               </div>
             </SRLWrapper>
           </div>
