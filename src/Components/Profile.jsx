@@ -11,82 +11,18 @@ import "../index.css";
 import Posters from "./Posters";
 
 const useStyles = (theme) => ({
-  root: {
-    display: "flex",
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  favourite: {
-    margin: theme.spacing(1),
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    color: "white",
-    align: "center",
-    fontSize: "1.2em",
-  },
-  heroContent: {
-    background: "white",
-    padding: theme.spacing(4, 0, 3),
-  },
-  media: {
-    width: 322,
-    height: 322,
-    objectFit: "contain",
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  genreImage: {
-    margin: theme.spacing(2),
-    width: "80px",
-    height: "120px",
-    borderRadius: "10px",
-    boxShadow: " 2px 3px 5px black",
-  },
-  mainbg: {
-    backgroundColor: "#FF521B",
-    color: "white",
-  },
-  badges: {
-    backgroundColor: "#A8D0DB",
-    height: "100vh",
-  },
-  badgeItems: {
-    borderTop: "1px solid #747C92",
-    height: "60px",
-    display: "flex",
-    flexDirection: "row",
-    padding: "3px",
-    backgroundColor: "#f3EDE2",
-  },
-  badge: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-  },
-  visitInfo: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+  container: {
+    display: "Grid",
+    gridTemplateColumns: "repeat(12)",
     color: "black",
   },
-  avatarInfo: {
+  title: {
     display: "flex",
-    flexDirection: "row",
-  },
-  rank: {
-    display: "flex",
-    flexDirection: "column",
     justifyContent: "center",
   },
-  badgeArea: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+  heroContent: {
+    paddingTop: "10px",
+    backgroundColor: "#FF521B",
   },
   posters: {
     display: "flex",
@@ -96,6 +32,13 @@ const useStyles = (theme) => ({
   orange: {
     color: theme.palette.getContrastText(deepOrange[500]),
     backgroundColor: deepOrange[500],
+    width: theme.spacing(10),
+    height: theme.spacing(11),
+    marginBottom: theme.spacing(6),
+  },
+  avatarPosition: {
+    display: "flex",
+    justifyContent: "flex-end",
   },
 });
 
@@ -143,110 +86,76 @@ class Profile extends React.Component {
           <Loading />
         ) : (
           <main>
-            <div className={classes.mainbg}>
-              <div className={classes.heroContent}>
-                <Container maxWidth="xs">
-                  <Typography
-                    component="h4"
-                    variant="h4"
-                    align="center"
-                    gutterBottom
-                  >
-                    <div style={{ textAlign: "center", fontSize: "1.5em" }}>
-                      {`Hello ${this.state.profile.username}`}{" "}
-                    </div>
+            <div>
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={12} md={12} className={classes.title}>
+                  <Typography variant="h4" gutterBottom>
+                    {`Hello ${this.state.profile.username}`}
                   </Typography>
-                  <Grid className={classes.avatarInfo} maxWidth="xs">
-                    <Grid item xs={5}>
-                      <div className={classes.root}>
-                        <Avatar className={classes.orange}>N</Avatar>
-                      </div>
-                    </Grid>
-                    {/* <Grid className={classes.rank} item xs={6}>
-                      <div style={{ textAlign: "center", fontSize: "1.5em" }}>
-                        Current ranking:
-                      </div>
-                      <div className={classes.badgeArea}>
-                        <div className={classes.root}>
-                          <img
-                            style={{ width: "60px", height: "80px" }}
-                            src={require("./images/currentRank.svg")}
-                            alt="medal"
-                          />
-                        </div>
-                        <div style={{ textAlign: "center", fontSize: "5em" }}>
-                          67
-                        </div>
-                      </div>
-                    </Grid> */}
-                  </Grid>
-                </Container>
-              </div>
+                </Grid>
+                <Grid
+                  item
+                  className={classes.avatarPosition}
+                  xs={4}
+                  sm={4}
+                  md={4}
+                >
+                  <Avatar className={classes.orange}>N</Avatar>
+                </Grid>
+                <Grid className={classes.introText} item xs={7} sm={7} md={7}>
+                  <Typography variant="h6" gutterBottom>
+                    What is MovieMapStar
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    subtitle1. Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Quos blanditiis tenetur
+                  </Typography>
+                </Grid>
+              </Grid>
+            </div>
 
-              <Container component="main" maxWidth="xs">
-                <Grid container className={classes.posters} xs={12}>
+            <div className={classes.heroContent}>
+              <Container component="main" maxWidth="md">
+                <Grid
+                  item
+                  style={{ color: "white", textAlign: "center" }}
+                  xs={12}
+                >
+                  <Typography variant="subtitle2" gutterBottom>
+                    Favourite Genres
+                  </Typography>
+                </Grid>
+                <Grid container xs={12}>
                   {cards.map((card, index) => {
                     return (
-                      <Grid key={card} item xs={4}>
+                      <Grid
+                        style={{ display: "flex", justifyContent: "center" }}
+                        key={index}
+                        item
+                        xs={4}
+                        sm={4}
+                        md={4}
+                      >
                         <Posters postergenre={card} />
                       </Grid>
                     );
                   })}
                 </Grid>
               </Container>
-              <div className={classes.badges}>
-                <Grid className={classes.badgeItems} container xs={12}>
-                  <Grid className={classes.badge} xs={3}>
-                    <img
-                      width="40px"
-                      src={require("./images/popcom.png")}
-                      alt="badge"
-                    />
-                  </Grid>
-                  <Grid className={classes.visitInfo} xs={7}>
-                    First person to get here!
-                  </Grid>
+            </div>
+            <div className={classes.badges}>
+              <Grid className={classes.badgeItems} container xs={12}>
+                <Grid className={classes.badge} xs={3}>
+                  <img
+                    width="40px"
+                    src={require("./images/popcom.png")}
+                    alt="badge"
+                  />
                 </Grid>
-
-                <Grid className={classes.badgeItems} container xs={12}>
-                  <Grid className={classes.badge} xs={3}>
-                    <img
-                      width="40px"
-                      src={require("./images/jv.png")}
-                      alt="badge"
-                    />
-                  </Grid>
-                  <Grid className={classes.visitInfo} xs={7}>
-                    Visited a Horror location!
-                  </Grid>
+                <Grid className={classes.visitInfo} xs={7}>
+                  First person to get here!
                 </Grid>
-
-                <Grid className={classes.badgeItems} container xs={12}>
-                  <Grid className={classes.badge} xs={3}>
-                    <img
-                      width="40px"
-                      src={require("./images/aircraft-engine.png")}
-                      alt="badge"
-                    />
-                  </Grid>
-                  <Grid className={classes.visitInfo} xs={7}>
-                    Visted over 40 locations
-                  </Grid>
-                </Grid>
-
-                <Grid className={classes.badgeItems} container xs={12}>
-                  <Grid className={classes.badge} xs={3}>
-                    <img
-                      width="40px"
-                      src={require("./images/icon1.ico")}
-                      alt="avatar"
-                    />
-                  </Grid>
-                  <Grid className={classes.visitInfo} xs={7}>
-                    Visited most of something
-                  </Grid>
-                </Grid>
-              </div>
+              </Grid>
             </div>
           </main>
         )}
