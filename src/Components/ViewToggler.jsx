@@ -14,12 +14,14 @@ class ViewToggler extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "#041B15", width: "100%", height: "30%" }}>
-        <Container component="main" maxWidth="xs">
-          <Grid container xs={12}>
+      <div style={{ backgroundColor: "#020122", width: "100%", height: "30%" }}>
+        <Container component="main" maxWidth="md">
+          <Grid container xs={12} sm={12} md={12}>
             <Grid
               item
               xs={2}
+              sm={2}
+              md={2}
               style={{
                 display: "flex",
               }}
@@ -35,6 +37,8 @@ class ViewToggler extends Component {
             <Grid
               item
               xs={8}
+              sm={8}
+              md={8}
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -70,16 +74,18 @@ class ViewToggler extends Component {
             <Grid
               item
               xs={2}
+              sm={2}
+              md={2}
               style={{
                 textAlign: "center",
-                paddingTop: "15px",
+                paddingTop: "20px",
               }}
             >
               <span class="material-icons md-light  md-36">account_circle</span>
             </Grid>
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={12} md={12}>
             {this.state.isVisible && this.props.children}
           </Grid>
         </Container>

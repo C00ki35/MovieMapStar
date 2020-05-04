@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 import ErrorHandler from "./ErrorHandler";
-import { Grid } from "@material-ui/core";
+import { Grid, Avatar } from "@material-ui/core";
+import { deepOrange } from "@material-ui/core/colors";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -28,7 +29,7 @@ const useStyles = (theme) => ({
     fontSize: "1.2em",
   },
   heroContent: {
-    background: "linear-gradient(30deg, #A8D0DB 30%, #5E548E 95%)",
+    background: "white",
     padding: theme.spacing(4, 0, 3),
   },
   media: {
@@ -47,8 +48,7 @@ const useStyles = (theme) => ({
     boxShadow: " 2px 3px 5px black",
   },
   mainbg: {
-    background: "linear-gradient(30deg, #A8D0DB 30%, #5E548E 95%)",
-
+    backgroundColor: "#FF521B",
     color: "white",
   },
   badges: {
@@ -92,6 +92,10 @@ const useStyles = (theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-end",
+  },
+  orange: {
+    color: theme.palette.getContrastText(deepOrange[500]),
+    backgroundColor: deepOrange[500],
   },
 });
 
@@ -155,17 +159,10 @@ class Profile extends React.Component {
                   <Grid className={classes.avatarInfo} maxWidth="xs">
                     <Grid item xs={5}>
                       <div className={classes.root}>
-                        <img
-                          style={{
-                            width: "120px",
-                            height: "120px",
-                          }}
-                          src={require("./images/starw.png")}
-                          alt="avatar"
-                        />
+                        <Avatar className={classes.orange}>N</Avatar>
                       </div>
                     </Grid>
-                    <Grid className={classes.rank} item xs={6}>
+                    {/* <Grid className={classes.rank} item xs={6}>
                       <div style={{ textAlign: "center", fontSize: "1.5em" }}>
                         Current ranking:
                       </div>
@@ -181,7 +178,7 @@ class Profile extends React.Component {
                           67
                         </div>
                       </div>
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                 </Container>
               </div>
