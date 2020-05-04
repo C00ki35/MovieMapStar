@@ -16,12 +16,10 @@ code {
   display: grid;
   grid-template-rows: 120px;
   grid-template-columns: 80px;
-  justify-items: end;
-  padding: 20px;
+  padding: 15px;
 }
 
 .loading {
-  padding-top: 15px;
   grid-row-start: 1;
   grid-row-end: 1;
   grid-column-start: 1;
@@ -29,6 +27,10 @@ code {
   background-color: red;
   width: "80px";
   height: "120px";
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "center";
+  align-content: "center";
 }
 
 .loading-fadeOut {
@@ -39,6 +41,10 @@ code {
   width: "80px";
   height: "120px";
   opacity: 0;
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "center";
+  align-content: "center";
   -webkit-transition: 2s;
   -moz-transition: 2s;
   -o-transition: 2s;
@@ -51,8 +57,6 @@ code {
   grid-column-start: 1;
   grid-column-end: 1;
 }
-
-/*Main loading screen */
 .lds-ripple {
   display: inline-block;
   position: relative;
@@ -86,7 +90,6 @@ code {
   }
 }
 
-/*Image loading screen */
 .lds-ripple-image {
   display: inline-block;
   position: relative;
@@ -95,7 +98,7 @@ code {
 }
 .lds-ripple-image div {
   position: absolute;
-  border: 2px solid #fff;
+  border: 4px solid #fff;
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
