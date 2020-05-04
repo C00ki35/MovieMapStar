@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Loading from "./Loading";
+import "../index.css";
+import Posters from "./Posters";
 
 const useStyles = (theme) => ({
   root: {
@@ -85,6 +87,11 @@ const useStyles = (theme) => ({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+  },
+  posters: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
 });
 
@@ -180,26 +187,11 @@ class Profile extends React.Component {
               </div>
 
               <Container component="main" maxWidth="xs">
-                <Grid
-                  className={classes.sectionheader}
-                  color="primary"
-                  item
-                  xs={12}
-                >
-                  <Divider />
-                  <Typography className={classes.favourite} component="h6">
-                    Favourite Films
-                  </Typography>
-                </Grid>
-                <Grid container xs={12}>
+                <Grid container className={classes.posters} xs={12}>
                   {cards.map((card, index) => {
                     return (
                       <Grid item xs={4}>
-                        <img
-                          className={classes.genreImage}
-                          src={`https://pgcdigit.co.uk/movieappimages/${card}.jpg`}
-                          alt="avatar"
-                        />
+                        <Posters />
                       </Grid>
                     );
                   })}
