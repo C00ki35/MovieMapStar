@@ -11,10 +11,8 @@ import "../index.css";
 import Posters from "./Posters";
 
 const useStyles = (theme) => ({
-  container: {
-    display: "Grid",
-    gridTemplateColumns: "repeat(12)",
-    color: "black",
+  main: {
+    padding: "20px 0px 20px 0px",
   },
   title: {
     display: "flex",
@@ -33,12 +31,12 @@ const useStyles = (theme) => ({
     color: theme.palette.getContrastText(deepOrange[500]),
     backgroundColor: deepOrange[500],
     width: theme.spacing(10),
-    height: theme.spacing(11),
-    marginBottom: theme.spacing(6),
+    height: theme.spacing(10),
   },
   avatarPosition: {
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
@@ -86,32 +84,34 @@ class Profile extends React.Component {
           <Loading />
         ) : (
           <main>
-            <div>
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={12} md={12} className={classes.title}>
+            <div className={classes.main}>
+              <Container component="main" maxWidth="sm">
+                <Grid item xs={7} sm={7} md={7} className={classes.title}>
                   <Typography variant="h4" gutterBottom>
                     {`Hello ${this.state.profile.username}`}
                   </Typography>
                 </Grid>
-                <Grid
-                  item
-                  className={classes.avatarPosition}
-                  xs={4}
-                  sm={4}
-                  md={4}
-                >
-                  <Avatar className={classes.orange}>N</Avatar>
+
+                <Grid container xs={12} sm={12} spacing={1}>
+                  <Grid
+                    item
+                    className={classes.avatarPosition}
+                    xs={4}
+                    sm={4}
+                    md={4}
+                  >
+                    <Avatar className={classes.orange}>N</Avatar>
+                  </Grid>
+                  <Grid item xs={8} sm={8} md={8}>
+                    <Typography variant="h6">What is MovieMapStar</Typography>
+
+                    <Typography variant="body2">
+                      subtitle1. Lorem ipsum dolor sit amet, consectetur
+                      adipisicing elit. Quos blanditiis tenetur
+                    </Typography>
+                  </Grid>
                 </Grid>
-                <Grid className={classes.introText} item xs={7} sm={7} md={7}>
-                  <Typography variant="h6" gutterBottom>
-                    What is MovieMapStar
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    subtitle1. Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Quos blanditiis tenetur
-                  </Typography>
-                </Grid>
-              </Grid>
+              </Container>
             </div>
 
             <div className={classes.heroContent}>
@@ -125,7 +125,7 @@ class Profile extends React.Component {
                     Favourite Genres
                   </Typography>
                 </Grid>
-                <Grid container xs={12}>
+                <Grid container xs={12} sm={12}>
                   {cards.map((card, index) => {
                     return (
                       <Grid
@@ -142,20 +142,6 @@ class Profile extends React.Component {
                   })}
                 </Grid>
               </Container>
-            </div>
-            <div className={classes.badges}>
-              <Grid className={classes.badgeItems} container xs={12}>
-                <Grid className={classes.badge} xs={3}>
-                  <img
-                    width="40px"
-                    src={require("./images/popcom.png")}
-                    alt="badge"
-                  />
-                </Grid>
-                <Grid className={classes.visitInfo} xs={7}>
-                  First person to get here!
-                </Grid>
-              </Grid>
             </div>
           </main>
         )}

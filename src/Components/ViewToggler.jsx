@@ -48,29 +48,7 @@ class ViewToggler extends Component {
                 height: "80px",
                 alignItems: "center",
               }}
-            >
-              <div>
-                <img
-                  style={{
-                    borderRadius: "55px",
-                    width: "30px",
-                    height: "30px",
-                  }}
-                  src={require("./images/map.png")}
-                  alt="Map"
-                />
-              </div>
-              <div>
-                <img
-                  style={{
-                    borderRadius: "55px",
-                    height: "30px",
-                  }}
-                  src={require("./images/mapstar.png")}
-                  alt="Logo"
-                />
-              </div>
-            </Grid>
+            ></Grid>
             <Grid
               item
               xs={2}

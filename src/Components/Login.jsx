@@ -10,6 +10,7 @@ import {
   Grid,
   Typography,
   Container,
+  CssBaseline,
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -94,13 +95,10 @@ class Login extends React.Component {
     const { classes } = this.props;
     return (
       <Container component="main" maxWidth="xs">
+        <CssBaseline />
         <div className={classes.paper}>
           <ErrorHandler formerrors={this.state.errors} />
-          <img
-            style={{ width: "150", height: "160px" }}
-            src={require("./images/map.png")}
-            alt="avatar"
-          />
+
           <form
             className={classes.form}
             onSubmit={this.handleSubmit}
