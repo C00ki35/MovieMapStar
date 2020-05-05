@@ -15,15 +15,12 @@ import {
 import { withStyles } from "@material-ui/core/styles";
 
 const useStyles = (theme) => ({
-  paper: {
-    marginTop: theme.spacing(4),
+  appBg: {
     display: "flex",
-    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    background: "linear-gradient(0.25turn, #f12b6a, #f2a041)",
+    height: "200px",
   },
   form: {
     marginTop: theme.spacing(3),
@@ -38,7 +35,7 @@ const useStyles = (theme) => ({
     alignItems: "center",
   },
   account: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(2),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -94,71 +91,80 @@ class Login extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <div className={classes.paper}>
-          <ErrorHandler formerrors={this.state.errors} />
-
-          <form
-            className={classes.form}
-            onSubmit={this.handleSubmit}
-            noValidate
-          >
-            <Typography color="secondary" component="h6" variant="h2">
-              Sign in ...
-            </Typography>
-            <TextField
-              className={classes.root}
-              InputProps={{
-                className: classes.input,
-              }}
-              variant="outlined"
-              margin="normal"
-              name="username"
-              required
-              value={this.state.username}
-              onChange={this.handleChange}
-              fullWidth
-              id="username"
-              label="Username"
-              autoComplete="email"
-              autoFocus
-            />
-
-            <TextField
-              variant="outlined"
-              InputProps={{
-                className: classes.input,
-              }}
-              margin="normal"
-              required
-              fullWidth
-              value={this.state.password}
-              onChange={this.handleChange}
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <Grid item className={classes.submitbutton}>
-              <Button
-                variant="contained"
-                fullWidth
-                color="primary"
-                type="submit"
-              >
-                Login
-              </Button>
-            </Grid>
-            <Grid item className={classes.account}>
-              <Link href="/profile/genres" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </form>
+      <main>
+        <div className={classes.appBg}>
+          <img
+            src={require("./images/mapstar.png")}
+            width="200px"
+            alt="Mapstar logo"
+          />
         </div>
-      </Container>
+
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div>
+            <ErrorHandler formerrors={this.state.errors} />
+
+            <form
+              className={classes.form}
+              onSubmit={this.handleSubmit}
+              noValidate
+            >
+              <Typography color="primary" component="h6" variant="h2">
+                Sign in ...
+              </Typography>
+              <TextField
+                InputProps={{
+                  className: classes.input,
+                }}
+                variant="outlined"
+                margin="normal"
+                name="username"
+                required
+                value={this.state.username}
+                onChange={this.handleChange}
+                fullWidth
+                id="username"
+                label="Username"
+                autoComplete="email"
+                autoFocus
+              />
+
+              <TextField
+                variant="outlined"
+                InputProps={{
+                  className: classes.input,
+                }}
+                margin="normal"
+                required
+                fullWidth
+                value={this.state.password}
+                onChange={this.handleChange}
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+              <Grid item className={classes.submitbutton}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="primary"
+                  type="submit"
+                >
+                  Login
+                </Button>
+              </Grid>
+              <Grid item className={classes.account}>
+                <Link href="/profile/genres" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </form>
+          </div>
+        </Container>
+      </main>
     );
   }
 }

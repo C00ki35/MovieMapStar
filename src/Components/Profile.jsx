@@ -12,7 +12,7 @@ import Posters from "./Posters";
 
 const useStyles = (theme) => ({
   main: {
-    padding: "20px 0px 20px 0px",
+    padding: "25px 0px 25px 0px",
   },
   title: {
     display: "flex",
