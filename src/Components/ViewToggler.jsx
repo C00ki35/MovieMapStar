@@ -55,7 +55,11 @@ class ViewToggler extends Component {
                 alignItems: "center",
               }}
             >
-              <img src={require("./images/mapstar.png")} width="150px" />
+              <img
+                src={require("./images/mapstar.png")}
+                width="150px"
+                alt="Movie Map Star logo"
+              />
             </Grid>
             <Grid
               item
@@ -67,7 +71,9 @@ class ViewToggler extends Component {
                 paddingTop: "20px",
               }}
             >
-              <span class="material-icons md-light  md-36">account_circle</span>
+              <span className="material-icons md-light  md-36">
+                account_circle
+              </span>
             </Grid>
           </Grid>
 

@@ -25,9 +25,9 @@ class Posters extends Component {
       <div className={"imagebox"}>
         <div className={"poster-image"}>
           <img
-            src={`https://www.pgcdigit.co.uk/movieappimages/${this.props.postergenre}.jpg`}
-            width="80px"
-            height="120px"
+            src={this.props.postergenre}
+            width="100px"
+            height="140px"
             onLoad={this.handleImageLoaded}
             onError={this.handleImageErrored}
             alt="Rambo Poster"

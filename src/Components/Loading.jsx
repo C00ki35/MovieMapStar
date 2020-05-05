@@ -7,7 +7,6 @@ class Loading extends Component {
         <div
           style={{
             backgroundColor: "red",
-            height: "100vh",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -21,7 +20,7 @@ class Loading extends Component {
               justifyContent: "center",
             }}
           >
-            <div class="lds-roller">
+            <div className="lds-roller">
               <div></div>
               <div></div>
               <div></div>

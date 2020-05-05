@@ -9,10 +9,11 @@ import Container from "@material-ui/core/Container";
 import Loading from "./Loading";
 import "../index.css";
 import Posters from "./Posters";
+import MovieInfo from "./MovieInfo";
 
 const useStyles = (theme) => ({
   main: {
-    padding: "30px 0px 30px 0px",
+    padding: "25px 0px 25px 0px",
   },
   title: {
     display: "flex",
@@ -20,7 +21,6 @@ const useStyles = (theme) => ({
   },
   heroContent: {
     paddingTop: "10px",
-    paddingBottom: "10px",
     backgroundColor: "#020122",
   },
   posters: {
@@ -31,8 +31,8 @@ const useStyles = (theme) => ({
   orange: {
     color: theme.palette.getContrastText(deepOrange[500]),
     backgroundColor: deepOrange[500],
-    width: theme.spacing(10),
-    height: theme.spacing(10),
+    width: theme.spacing(11),
+    height: theme.spacing(11),
   },
   avatarPosition: {
     display: "flex",
@@ -48,6 +48,8 @@ class Profile extends React.Component {
     error: null,
     isLoading: true,
   };
+
+  fetchAllData = () => {};
 
   fetchProfile = async () => {
     try {
@@ -81,7 +83,7 @@ class Profile extends React.Component {
     return (
       <>
         <ErrorHandler apierrors={this.state.error} />
-        {this.state.isLoading ? (
+        {this.state.isLoading && this.state.movieInfoLoading ? (
           <Loading />
         ) : (
           <main>
@@ -137,13 +139,16 @@ class Profile extends React.Component {
                         sm={4}
                         md={4}
                       >
-                        <Posters postergenre={card} />
+                        <Posters
+                          postergenre={`https://www.pgcdigit.co.uk/movieappimages/${card}.jpg`}
+                        />
                       </Grid>
                     );
                   })}
                 </Grid>
               </Container>
             </div>
+            <MovieInfo />
           </main>
         )}
       </>
