@@ -139,7 +139,6 @@ class SearchMovie extends Component {
             )}
           </Typography>
         </Grid>
-        {console.log(this.state.movieInformation)}
         <div
           style={{
             width: "100%",
@@ -158,7 +157,7 @@ class SearchMovie extends Component {
                 <Container
                   className={classes.movieInfo}
                   component="main"
-                  maxWidth="xs"
+                  maxWidth="sm"
                 >
                   <Grid item xs={6}>
                     {this.state.movieInformation.title}

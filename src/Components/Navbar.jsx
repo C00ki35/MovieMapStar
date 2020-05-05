@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { BrowserRouter as useHistory } from "react-router-dom";
 import "typeface-roboto";
-import { Link, Container, Grid } from "@material-ui/core";
+import { Link, Container, Grid, Divider } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 const useStyles = (theme) => ({
   paper: {
@@ -67,19 +67,45 @@ class Navbar extends Component {
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <Grid className={classes.menugrid} item xs={12}>
-            <Link color="secondary" href="/maps">
-              Map
+            <Link
+              color="secondary"
+              style={{ textDecoration: "none" }}
+              variant="button"
+              href="/maps"
+            >
+              MAP
             </Link>
-            <Link color="secondary" href="/userCamera">
-              Camera
+
+            <Link
+              color="secondary"
+              style={{ textDecoration: "none" }}
+              variant="button"
+              href="/userCamera"
+            >
+              CAMERA
             </Link>
-            <Link color="secondary" href="/gallery">
-              Gallery
+            <Link
+              color="secondary"
+              style={{ textDecoration: "none" }}
+              variant="button"
+              href="/gallery"
+            >
+              GALLERY
             </Link>
-            <Link color="secondary" href="/profile">
-              Profile
+            <Link
+              color="secondary"
+              style={{ textDecoration: "none" }}
+              variant="button"
+              href="/profile"
+            >
+              PROFILE
             </Link>
-            <Link color="secondary" href="/" onClick={this.handleLogOut}>
+            <Link
+              color="secondary"
+              variant="button"
+              href="/"
+              onClick={this.handleLogOut}
+            >
               Log Out
             </Link>
           </Grid>

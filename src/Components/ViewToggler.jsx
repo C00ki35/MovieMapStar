@@ -14,7 +14,13 @@ class ViewToggler extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "#020122", width: "100%", height: "30%" }}>
+      <div
+        style={{
+          background: "linear-gradient(0.25turn, #f12b6a, #f2a041)",
+          width: "100%",
+          height: "30%",
+        }}
+      >
         <Container component="main" maxWidth="md">
           <Grid container xs={12} sm={12} md={12}>
             <Grid
@@ -48,7 +54,9 @@ class ViewToggler extends Component {
                 height: "80px",
                 alignItems: "center",
               }}
-            ></Grid>
+            >
+              <img src={require("./images/mapstar.png")} width="150px" />
+            </Grid>
             <Grid
               item
               xs={2}

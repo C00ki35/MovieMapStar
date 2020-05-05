@@ -12,7 +12,7 @@ import Posters from "./Posters";
 
 const useStyles = (theme) => ({
   main: {
-    padding: "25px 0px 25px 0px",
+    padding: "30px 0px 30px 0px",
   },
   title: {
     display: "flex",
@@ -20,7 +20,8 @@ const useStyles = (theme) => ({
   },
   heroContent: {
     paddingTop: "10px",
-    backgroundColor: "#FF521B",
+    paddingBottom: "10px",
+    backgroundColor: "#020122",
   },
   posters: {
     display: "flex",
