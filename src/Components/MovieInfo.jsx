@@ -65,7 +65,6 @@ class MovieInfo extends Component {
                 style={{
                   display: "flex",
                   justifyContent: "flex-end",
-                  backgroundColor: "yellow",
                 }}
               >
                 <Posters postergenre={this.state.movieInfo.title.image.url} />
