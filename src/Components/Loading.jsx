@@ -10,6 +10,7 @@ class Loading extends Component {
             flexDirection: "column",
             justifyContent: "center",
             alignContents: "center",
+            paddingTop: "px",
           }}
         >
           {" "}
@@ -35,10 +36,11 @@ class Loading extends Component {
               paddingTop: "20px",
               display: "flex",
               justifyContent: "center",
-              color: "white",
+              textAlign: "center",
+              color: "#e76a4a",
             }}
           >
-            Just fetching data. I'll be back..
+            Just fetching the locations.... <br /> I'll be back..
           </div>
         </div>
       </>

@@ -140,10 +140,9 @@ class Profile extends React.Component {
                         sm={4}
                         md={4}
                       >
-                        {" "}
                         <Link to="/tt0119164">
                           <Posters
-                            postergenre={`https://www.pgcdigit.co.uk/movieappimages/${card}.jpg`}
+                            postergenre={`https://www.pgcdigit.co.uk/moviea7ppimages/${card}.jpg`}
                           />
                         </Link>
                       </Grid>
@@ -152,8 +151,8 @@ class Profile extends React.Component {
                 </Grid>
               </Container>
             </div>
-            <MovieInfo />
-            <MovieInfo />
+            {/* <MovieInfo />
+            <MovieInfo /> */}
           </main>
         )}
       </>
