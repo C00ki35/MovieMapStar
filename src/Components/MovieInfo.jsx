@@ -105,7 +105,7 @@ class MovieInfo extends Component {
             </Grid>
             <Grid container xs={8}>
               <Grid style={{ paddingTop: "20px" }} item xs={12}>
-                <Typography variant="h7">Film Title</Typography>
+                <Typography variant="h6">Film Title</Typography>
                 <Divider />
                 <Typography variant="body2" gutterBottom>
                   subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing

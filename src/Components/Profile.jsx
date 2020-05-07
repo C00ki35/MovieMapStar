@@ -10,7 +10,7 @@ import Loading from "./Loading";
 import "../index.css";
 import Posters from "./Posters";
 import MovieInfo from "./MovieInfo";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 const useStyles = (theme) => ({
   main: {
@@ -84,7 +84,7 @@ class Profile extends React.Component {
     return (
       <>
         <ErrorHandler apierrors={this.state.error} />
-        {this.state.isLoading && this.state.movieInfoLoading ? (
+        {this.state.isLoading ? (
           <Loading />
         ) : (
           <main>
@@ -143,7 +143,7 @@ class Profile extends React.Component {
                         {" "}
                         <Link to="/tt0119164">
                           <Posters
-                            postergenre={`https://www.pgcdigit.co.uk/movieappppimages/${card}.jpg`}
+                            postergenre={`https://www.pgcdigit.co.uk/movieappimages/${card}.jpg`}
                           />
                         </Link>
                       </Grid>
