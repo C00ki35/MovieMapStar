@@ -140,12 +140,11 @@ class Profile extends React.Component {
                         sm={4}
                         md={4}
                       >
-                        {" "}
-                        <Link to="/tt0119164">
+                        {/* <Link to="/tt0119164">
                           <Posters
                             postergenre={`https://www.pgcdigit.co.uk/movieappimages/${card}.jpg`}
                           />
-                        </Link>
+                        </Link> */}
                       </Grid>
                     );
                   })}
