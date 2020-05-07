@@ -95,8 +95,8 @@ class Profile extends React.Component {
                     {`Hello ${this.state.profile.username}`}
                   </Typography>
                 </Grid>
-
-                <Grid container xs={12} sm={12} spacing={1}>
+              </Container>
+              {/* <Grid container xs={12} sm={12} spacing={1}>
                   <Grid
                     item
                     className={classes.avatarPosition}
@@ -140,11 +140,11 @@ class Profile extends React.Component {
                         sm={4}
                         md={4}
                       >
-                        {/* <Link to="/tt0119164">
+                        <Link to="/tt0119164">
                           <Posters
                             postergenre={`https://www.pgcdigit.co.uk/movieappimages/${card}.jpg`}
                           />
-                        </Link> */}
+                        </Link>
                       </Grid>
                     );
                   })}
@@ -152,7 +152,8 @@ class Profile extends React.Component {
               </Container>
             </div>
             <MovieInfo />
-            <MovieInfo />
+            <MovieInfo /> */}
+            </div>
           </main>
         )}
       </>
