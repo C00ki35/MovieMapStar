@@ -49,76 +49,41 @@ class MovieInfo extends Component {
   };
 
   componentDidMount() {
-    //this.getMovieInfo();
+    this.getMovieInfo();
   }
   render() {
     return (
-      // <>
-      //   {this.state.movieInfoLoading ? (
-      //     <Loading />
-      //   ) : (
-      //     <Container component="main" maxWidth="md">
-      //       <Grid container xs={12}>
-      //         <Grid
-      //           item
-      //           xs={4}
-      //           style={{
-      //             display: "flex",
-      //             justifyContent: "flex-end",
-      //             backgroundColor: "yellow",
-      //           }}
-      //         >
-      //           <Posters postergenre={this.state.movieInfo.title.image.url} />
-      //         </Grid>
-      //         <Grid container xs={8}>
-      //           <Grid style={{ paddingTop: "20px" }} item xs={12}>
-      //             <Typography variant="h7">
-      //               {this.state.movieInfo.title.title}
-      //             </Typography>
-      //             <Divider />
-      //             <Typography variant="body2" gutterBottom>
-      //               {`${this.state.movieInfo.plotOutline.text} (${this.state.movieInfo.title.year})`}
-      //             </Typography>
-      //           </Grid>
-      //         </Grid>
-      //       </Grid>
-      //     </Container>
-      //   )}
-      // </>
-
       <>
-        {/* {this.state.movieInfoLoading ? (
+        {this.state.movieInfoLoading ? (
           <Loading />
-        ) : ( */}
-        <Container component="main" maxWidth="md">
-          <Grid container xs={12}>
-            <Grid
-              item
-              xs={4}
-              style={{
-                display: "flex",
-                justifyContent: "flex-end",
-                backgroundColor: "yellow",
-              }}
-            >
-              {/* <Posters postergenre={this.state.movieInfo.title.image.url} /> */}
-            </Grid>
-            <Grid container xs={8}>
-              <Grid style={{ paddingTop: "20px" }} item xs={12}>
-                <Typography variant="h6">Film Title</Typography>
-                <Divider />
-                <Typography variant="body2" gutterBottom>
-                  subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit. Quos blanditiis tenetursubtitle1. Lorem ipsum dolor sit
-                  amet, consectetur adipisicing elit. Quos blanditiis
-                  tenetursubtitle1. Lorem ipsum dolor sit amet, consectetur
-                  adipisicing elit. Quos blanditiis tenetur
-                </Typography>
+        ) : (
+          <Container component="main" maxWidth="md">
+            <Grid container xs={12}>
+              <Grid
+                item
+                xs={4}
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  backgroundColor: "yellow",
+                }}
+              >
+                <Posters postergenre={this.state.movieInfo.title.image.url} />
+              </Grid>
+              <Grid container xs={8}>
+                <Grid style={{ paddingTop: "20px" }} item xs={12}>
+                  <Typography variant="h7">
+                    {this.state.movieInfo.title.title}
+                  </Typography>
+                  <Divider />
+                  <Typography variant="body2" gutterBottom>
+                    {`${this.state.movieInfo.plotOutline.text} (${this.state.movieInfo.title.year})`}
+                  </Typography>
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-        </Container>
-        {/* )} */}
+          </Container>
+        )}
       </>
     );
   }
