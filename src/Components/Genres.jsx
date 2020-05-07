@@ -14,6 +14,13 @@ const useStyles = (theme) => ({
     flexDirection: "column",
     alignItems: "center",
   },
+  appBg: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "linear-gradient(0.25turn, #f12b6a, #f2a041)",
+    height: "90px",
+  },
   genreSelections: {
     display: "flex",
     flexDirection: "column",
@@ -29,7 +36,7 @@ const useStyles = (theme) => ({
     alignItems: "center",
   },
   imageInfo: {
-    width: "90%",
+    width: "80%",
     height: "90%",
   },
 });
@@ -86,8 +93,14 @@ class Genres extends React.Component {
     const { classes } = this.props;
     return (
       <>
-        <AppBar position="relative"></AppBar>
         <main>
+          <div className={classes.appBg}>
+            <img
+              src={require("./images/mapstar.png")}
+              width="200px"
+              alt="Mapstar logo"
+            />
+          </div>
           <Container
             className={classes.genreSelections}
             component="main"
@@ -96,17 +109,25 @@ class Genres extends React.Component {
             <Container xs={12}>
               <Typography
                 component="h3"
-                variant="h5"
+                variant="body2"
                 align="center"
                 color="primary"
+                style={{ paddingTop: "20px" }}
               >
                 First, pick 3 genres ...
               </Typography>
             </Container>
-            <Grid container xs={12} spacing={2} className={classes.genreImages}>
+            <Grid container xs={12} spacing={1} className={classes.genreImages}>
               {this.state.error ? (
-                <Grid item xs={12} style={{ color: "#DB5375" }}>
-                  {this.state.error}
+                <Grid item xs={12} variant="body2" style={{ color: "#DB5375" }}>
+                  <Typography
+                    component="h3"
+                    variant="body2"
+                    align="center"
+                    color="primary"
+                  >
+                    {this.state.error}
+                  </Typography>
                 </Grid>
               ) : null}
               <Grid

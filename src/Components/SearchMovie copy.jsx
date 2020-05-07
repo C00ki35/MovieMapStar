@@ -44,7 +44,6 @@ class SearchMovie extends Component {
     error: null,
     isLoading: false,
     fieldError: false,
-    profileSearch: false,
   };
 
   handleClick = (event) => {
@@ -56,37 +55,6 @@ class SearchMovie extends Component {
         this.setState({ error });
       });
   };
-
-  searchByMovieId = (profileMovieId) => {
-    // console.log("GETTING MOVIE INFO FOR ", profileMovieId);
-    getMovieLocations(profileMovieId)
-      .then((addresses) => {
-        return Promise.all(addresses.map((address) => api.getLatLng(address)))
-          .then((coords) => {
-            this.setState({
-              coordinates: coords,
-              isLoading: false,
-              profileSearch: false,
-            });
-          })
-          .catch((error) => {
-            this.setState({ error }, () => {
-              console.log(this.state.error);
-            });
-          });
-      })
-      .catch((error) => {
-        this.setState({ error }, () => {
-          console.log(this.state.error);
-        });
-      });
-  };
-
-  // componentDidUpdate() {
-  //   if (filmId !== undefined && !this.state.profileSearch) {
-  //     this.searchByMovieId(this.props.profileMovieId);
-  //   }
-  // }
 
   handleChange = (event) => {
     const { value } = event.target;
@@ -135,20 +103,9 @@ class SearchMovie extends Component {
     }
   };
 
-  componentDidMount() {
-    if (this.props.match === undefined) {
-      console.log("NOT HERE");
-    } else {
-      console.log("HERE");
-    }
-    // const { filmId } = this.props.match.params;
-    // this.searchByMovieId(filmId);
-  }
-
   render() {
     const { classes } = this.props;
     const API_KEY = process.env.REACT_APP_API_KEY;
-
     return (
       <Container component="main" maxWidth="xs">
         <Grid container className={classes.searchBar} xs={12}>

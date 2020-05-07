@@ -6,7 +6,6 @@ class Loading extends Component {
       <>
         <div
           style={{
-            backgroundColor: "red",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",

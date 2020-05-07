@@ -8,6 +8,7 @@ import Gallery from "./Components/Gallery";
 import Usercamera from "./Components/Usercamera";
 import Genres from "./Components/Genres";
 import Profile from "./Components/Profile";
+import SearchMovie from "./Components/SearchMovie";
 import Navbar from "./Components/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Auth } from "aws-amplify";
@@ -136,6 +137,8 @@ class App extends Component {
                   path="/profile/genres"
                   render={(props) => <Genres auth={authProps} {...props} />}
                 />
+
+                <Route path="/:filmId" component={SearchMovie} />
               </Switch>
             </div>
           </Router>

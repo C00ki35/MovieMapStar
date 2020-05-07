@@ -19,6 +19,13 @@ const useStyles = (theme) => ({
     flexDirection: "column",
     alignItems: "center",
   },
+  appBg: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "linear-gradient(0.25turn, #f12b6a, #f2a041)",
+    height: "90px",
+  },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
@@ -129,97 +136,106 @@ class Register extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container component="main" maxWidth="xs">
-        <div className={classes.paper}>
-          <ErrorHandler formerrors={this.state.errors} />
-
-          <Typography color="secondary" component="h6" variant="h2">
-            Sign up ...
-          </Typography>
-          <form onSubmit={this.handleSubmit} className={classes.form}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  InputProps={{
-                    className: classes.input,
-                  }}
-                  autoComplete="username"
-                  name="username"
-                  variant="outlined"
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                  required
-                  fullWidth
-                  id="username"
-                  label="username"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  InputProps={{
-                    className: classes.input,
-                  }}
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label="email"
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  InputProps={{
-                    className: classes.input,
-                  }}
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="password"
-                  type="password"
-                  label="password"
-                  name="password"
-                  autoComplete="password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  InputProps={{
-                    className: classes.input,
-                  }}
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="name"
-                  label="your name"
-                  type="name"
-                  id="name"
-                  autoComplete="your name"
-                />
-              </Grid>
-              <Grid className={classes.submitButton} item xs={12}>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                >
-                  Next
-                </Button>
-              </Grid>
-            </Grid>
-          </form>
+      <main>
+        <div className={classes.appBg}>
+          <img
+            src={require("./images/mapstar.png")}
+            width="200px"
+            alt="Mapstar logo"
+          />
         </div>
-      </Container>
+        <Container component="main" maxWidth="xs">
+          <div className={classes.paper}>
+            <ErrorHandler formerrors={this.state.errors} />
+
+            <Typography color="primary" component="body2">
+              Thanks, now just a few details ...
+            </Typography>
+            <form onSubmit={this.handleSubmit} className={classes.form}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    InputProps={{
+                      className: classes.input,
+                    }}
+                    autoComplete="username"
+                    name="username"
+                    variant="outlined"
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                    required
+                    fullWidth
+                    id="username"
+                    label="username"
+                    autoFocus
+                  />
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    InputProps={{
+                      className: classes.input,
+                    }}
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="email"
+                    label="email"
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    InputProps={{
+                      className: classes.input,
+                    }}
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="password"
+                    type="password"
+                    label="password"
+                    name="password"
+                    autoComplete="password"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    InputProps={{
+                      className: classes.input,
+                    }}
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="name"
+                    label="your name"
+                    type="name"
+                    id="name"
+                    autoComplete="your name"
+                  />
+                </Grid>
+                <Grid className={classes.submitButton} item xs={12}>
+                  <Button
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    type="submit"
+                  >
+                    Next
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
+          </div>
+        </Container>
+      </main>
     );
   }
 }

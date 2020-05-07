@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import "typeface-roboto";
-import { Button, TextField, Grid, Container } from "@material-ui/core";
+import {
+  Button,
+  TextField,
+  Grid,
+  Container,
+  Typography,
+} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
 const useStyles = (theme) => ({
+  appBg: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "linear-gradient(0.25turn, #f12b6a, #f2a041)",
+    height: "90px",
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
@@ -57,46 +70,63 @@ class Verify extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container component="main" maxWidth="xs">
-        <Grid container className={classes.verfiyBox} xs={12}>
-          <Grid item xs={12}>
-            <h1>Welcome!</h1>
-            <p>You have successfully registered a new account.</p>
-            <p>
-              We've sent you an email. Please check the verification code and
-              enter below
-            </p>
-          </Grid>
-          <Grid item xs={6}>
-            <label>Enter Verify Code:</label>
-            <TextField
-              className={classes.root}
-              InputProps={{
-                className: classes.input,
-              }}
-              variant="outlined"
-              margin="normal"
-              name="verifyNumber"
-              required
-              value={this.state.verifyNumber}
-              onChange={this.handleChange}
+      <main>
+        <div className={classes.appBg}>
+          <img
+            src={require("./images/mapstar.png")}
+            width="200px"
+            alt="Mapstar logo"
+          />
+        </div>
+
+        <Container component="main" maxWidth="xs">
+          <Grid container className={classes.verfiyBox} xs={12}>
+            <Grid item xs={12}>
+              <Typography
+                style={{ paddingTop: "30px" }}
+                color="primary"
+                component="h6"
+                variant="h2"
+              >
+                Sign in ...
+              </Typography>
+              <Typography paragraph={true} color="primary" component="body2">
+                You have successfully registered a new account. We've sent you
+                an email.{" "}
+                <p>Please check the verification code and enter below.</p>
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <label>Enter Verify Code:</label>
+              <TextField
+                className={classes.root}
+                InputProps={{
+                  className: classes.input,
+                }}
+                variant="outlined"
+                margin="normal"
+                name="verifyNumber"
+                required
+                value={this.state.verifyNumber}
+                onChange={this.handleChange}
+                fullWidth
+                label="verification number"
+                autoFocus
+              />
+            </Grid>
+            <Button
+              className={classes.submitButton}
+              variant="contained"
+              onClick={this.handleClick}
               fullWidth
-              label="verification number"
-              autoFocus
-            />
+              color="primary"
+              type="submit"
+            >
+              Login
+            </Button>
           </Grid>
-          <Button
-            className={classes.submitButton}
-            variant="contained"
-            onClick={this.handleClick}
-            fullWidth
-            color="primary"
-            type="submit"
-          >
-            Login
-          </Button>
-        </Grid>
-      </Container>
+        </Container>
+      </main>
     );
   }
 }

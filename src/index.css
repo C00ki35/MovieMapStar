@@ -24,7 +24,7 @@ code {
   grid-row-end: 1;
   grid-column-start: 1;
   grid-column-end: 1;
-  background-color: red;
+  background-color: white;
   width: "100px";
   height: "140px";
   display: "flex";
@@ -82,7 +82,7 @@ code {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #fff;
+  background: red;
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {

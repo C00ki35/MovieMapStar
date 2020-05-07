@@ -30,7 +30,7 @@ class Posters extends Component {
             height="140px"
             onLoad={this.handleImageLoaded}
             onError={this.handleImageErrored}
-            alt="Rambo Poster"
+            alt={`this.props.postergenre ${this.props.postergenre}`}
           />
         </div>
         <div className={loadingClass}>
