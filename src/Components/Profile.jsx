@@ -120,13 +120,12 @@ class Profile extends React.Component {
 
             <div className={classes.heroContent}>
               <Container component="main" maxWidth="md">
-                <Grid
-                  item
-                  style={{ color: "white", textAlign: "center" }}
-                  xs={12}
-                >
-                  <Typography variant="subtitle2" gutterBottom>
+                <Grid item style={{ color: "white" }} xs={12}>
+                  <Typography variant="h5" gutterBottom>
                     Favourite Genres
+                  </Typography>
+                  <Typography variant="body2" gutterBottom>
+                    Click on the poster for find where this movie was filmed
                   </Typography>
                 </Grid>
 
@@ -144,7 +143,7 @@ class Profile extends React.Component {
                         {" "}
                         <Link to="/tt0119164">
                           <Posters
-                            postergenre={`https://www.pgcdigit.co.uk/movieappimages/${card}.jpg`}
+                            postergenre={`https://www.pgcdigit.co.uk/movieappppimages/${card}.jpg`}
                           />
                         </Link>
                       </Grid>

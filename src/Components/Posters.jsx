@@ -22,21 +22,23 @@ class Posters extends Component {
     }
 
     return (
-      <div className={"imagebox"}>
-        <div className={"poster-image"}>
-          <img
-            src={this.props.postergenre}
-            width="100px"
-            height="140px"
-            onLoad={this.handleImageLoaded}
-            onError={this.handleImageErrored}
-            alt={`this.props.postergenre ${this.props.postergenre}`}
-          />
+      <>
+        <div className={"imagebox"}>
+          <div className={"poster-image"}>
+            <img
+              src={this.props.postergenre}
+              width="100px"
+              height="140px"
+              onLoad={this.handleImageLoaded}
+              onError={this.handleImageErrored}
+              alt={`this.props.postergenre ${this.props.postergenre}`}
+            />
+          </div>
+          <div className={loadingClass}>
+            {this.state.imageStatus && <ImageLoader />}
+          </div>
         </div>
-        <div className={loadingClass}>
-          {this.state.imageStatus && <ImageLoader />}
-        </div>
-      </div>
+      </>
     );
   }
 }

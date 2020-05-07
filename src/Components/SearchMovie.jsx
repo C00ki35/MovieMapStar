@@ -58,7 +58,7 @@ class SearchMovie extends Component {
   };
 
   searchByMovieId = (profileMovieId) => {
-    // console.log("GETTING MOVIE INFO FOR ", profileMovieId);
+    console.log("Doing this");
     getMovieLocations(profileMovieId)
       .then((addresses) => {
         return Promise.all(addresses.map((address) => api.getLatLng(address)))
@@ -136,13 +136,10 @@ class SearchMovie extends Component {
   };
 
   componentDidMount() {
-    if (this.props.match === undefined) {
-      console.log("NOT HERE");
-    } else {
-      console.log("HERE");
+    if (this.props.match !== undefined) {
+      const { filmId } = this.props.match.params;
+      this.searchByMovieId(filmId);
     }
-    // const { filmId } = this.props.match.params;
-    // this.searchByMovieId(filmId);
   }
 
   render() {
