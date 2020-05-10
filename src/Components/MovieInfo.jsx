@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { Grid, Container, Typography, Divider } from "@material-ui/core";
+import {
+  Grid,
+  Container,
+  Typography,
+  Divider,
+  Button,
+} from "@material-ui/core";
 import Loading from "./Loading";
 import Posters from "./Posters";
 
@@ -78,6 +84,14 @@ class MovieInfo extends Component {
                   <Typography variant="body2" gutterBottom>
                     {`${this.state.movieInfo.plotOutline.text} (${this.state.movieInfo.title.year})`}
                   </Typography>
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    color="primary"
+                    type="submit"
+                  >
+                    Find filming locations
+                  </Button>
                 </Grid>
               </Grid>
             </Grid>

@@ -1,5 +1,4 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
 import Card from "@material-ui/core/Card";
 import { CardMedia, Button } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
@@ -67,25 +66,41 @@ class Genres extends React.Component {
   };
 
   selectGenre = (name) => {
+    const selectedGenre = name.split("-")[0];
     if (this.state.genres.length === 3 && !this.state.genres.includes(name)) {
-      this.setState((currentState) => {
-        return {
-          genres: [...currentState.genres],
-          error: '"Sorry, you can only pic 3 genres"',
-        };
-      });
+      this.setState(
+        (currentState) => {
+          return {
+            genres: [...currentState.genres],
+            error: '"Sorry, you can only pic 3 genres"',
+          };
+        },
+        () => {
+          console.log(this.state.genres);
+        }
+      );
     } else if (this.state.genres.includes(name)) {
       const newState = [...this.state.genres];
       newState.splice(newState.indexOf(name), 1);
-      this.setState({ genres: [...newState], error: "", [name]: "" }, () => {});
+      this.setState(
+        { genres: [...newState], error: "", [selectedGenre]: "" },
+        () => {
+          console.log(this.state.genres);
+        }
+      );
     } else {
-      this.setState((currentState) => {
-        return {
-          genres: [...currentState.genres, name],
-          error: "",
-          [name]: "#DB5375",
-        };
-      });
+      this.setState(
+        (currentState) => {
+          return {
+            genres: [...currentState.genres, name],
+            error: "",
+            [selectedGenre]: "#DB5375",
+          };
+        },
+        () => {
+          console.log("THISS IS THE GENRE ", this.state.genres);
+        }
+      );
     }
   };
 
@@ -130,12 +145,13 @@ class Genres extends React.Component {
                   </Typography>
                 </Grid>
               ) : null}
+
               <Grid
                 className={classes.genreImages}
                 item
                 xs={4}
                 onClick={() => {
-                  this.selectGenre("horror");
+                  this.selectGenre("horror-tt0077651");
                 }}
               >
                 <Card
@@ -146,7 +162,7 @@ class Genres extends React.Component {
                     className={classes.imageInfo}
                     component="img"
                     alt="Horror genre"
-                    image={require("./images/genres/horror.jpg")}
+                    image={require("./images/genres/horror-tt0077651.jpg")}
                   />
                 </Card>
               </Grid>
@@ -156,7 +172,7 @@ class Genres extends React.Component {
                 item
                 xs={4}
                 onClick={() => {
-                  this.selectGenre("action");
+                  this.selectGenre("action-tt1206885");
                 }}
               >
                 <Card
@@ -167,7 +183,7 @@ class Genres extends React.Component {
                     className={classes.imageInfo}
                     component="img"
                     alt="Action genre"
-                    image={require("./images/genres/action.jpg")}
+                    image={require("./images/genres/action-tt1206885.jpg")}
                   />
                 </Card>
               </Grid>
@@ -177,7 +193,7 @@ class Genres extends React.Component {
                 item
                 xs={4}
                 onClick={() => {
-                  this.selectGenre("animation");
+                  this.selectGenre("animation-tt1979376");
                 }}
               >
                 <Card
@@ -188,7 +204,7 @@ class Genres extends React.Component {
                     className={classes.imageInfo}
                     component="img"
                     alt="Animation genre"
-                    image={require("./images/genres/animation.jpg")}
+                    image={require("./images/genres/animation-tt1979376.jpg")}
                   />
                 </Card>
               </Grid>
@@ -198,7 +214,7 @@ class Genres extends React.Component {
                 item
                 xs={4}
                 onClick={() => {
-                  this.selectGenre("romance");
+                  this.selectGenre("romance-tt0100405");
                 }}
               >
                 <Card
@@ -209,7 +225,7 @@ class Genres extends React.Component {
                     className={classes.imageInfo}
                     component="img"
                     alt="Romance genre"
-                    image={require("./images/genres/romance.jpg")}
+                    image={require("./images/genres/romance-tt0100405.jpg")}
                   />
                 </Card>
               </Grid>
@@ -219,7 +235,7 @@ class Genres extends React.Component {
                 item
                 xs={4}
                 onClick={() => {
-                  this.selectGenre("scifi");
+                  this.selectGenre("scifi-tt0076759");
                 }}
               >
                 <Card
@@ -230,7 +246,7 @@ class Genres extends React.Component {
                     className={classes.imageInfo}
                     component="img"
                     alt="Sci-fi genre"
-                    image={require("./images/genres/sci-fi.jpg")}
+                    image={require("./images/genres/scifi-tt0076759.jpg")}
                   />
                 </Card>
               </Grid>
@@ -240,7 +256,7 @@ class Genres extends React.Component {
                 item
                 xs={4}
                 onClick={() => {
-                  this.selectGenre("drama");
+                  this.selectGenre("drama-tt0111161");
                 }}
               >
                 <Card
@@ -251,7 +267,7 @@ class Genres extends React.Component {
                     className={classes.imageInfo}
                     component="img"
                     alt="Drama genre"
-                    image={require("./images/genres/drama.jpg")}
+                    image={require("./images/genres/drama-tt0111161.jpg")}
                   />
                 </Card>
               </Grid>
@@ -261,7 +277,7 @@ class Genres extends React.Component {
                 item
                 xs={4}
                 onClick={() => {
-                  this.selectGenre("western");
+                  this.selectGenre("western-tt2404435");
                 }}
               >
                 <Card
@@ -272,7 +288,7 @@ class Genres extends React.Component {
                     className={classes.imageInfo}
                     component="img"
                     alt="Western genre"
-                    image={require("./images/genres/western.jpg")}
+                    image={require("./images/genres/western-tt2404435.jpg")}
                   />
                 </Card>
               </Grid>
@@ -282,7 +298,7 @@ class Genres extends React.Component {
                 item
                 xs={4}
                 onClick={() => {
-                  this.selectGenre("adventure");
+                  this.selectGenre("adventure-tt1790809");
                 }}
               >
                 <Card
@@ -293,7 +309,7 @@ class Genres extends React.Component {
                     className={classes.imageInfo}
                     component="img"
                     alt="Adventure genre"
-                    image={require("./images/genres/adventure.jpg")}
+                    image={require("./images/genres/adventure-tt1790809.jpg")}
                   />
                 </Card>
               </Grid>
@@ -303,7 +319,7 @@ class Genres extends React.Component {
                 item
                 xs={4}
                 onClick={() => {
-                  this.selectGenre("thriller");
+                  this.selectGenre("thriller-tt0073195");
                 }}
               >
                 <Card
@@ -314,7 +330,7 @@ class Genres extends React.Component {
                     className={classes.imageInfo}
                     component="img"
                     alt="Thriller genre"
-                    image={require("./images/genres/thriller.jpg")}
+                    image={require("./images/genres/thriller-tt0073195.jpg")}
                   />
                 </Card>
               </Grid>

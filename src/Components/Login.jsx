@@ -100,7 +100,7 @@ class Login extends React.Component {
           />
         </div>
 
-        <Container component="main" maxwidth="xs">
+        <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div>
             <ErrorHandler formerrors={this.state.errors} />

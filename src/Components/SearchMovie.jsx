@@ -137,7 +137,9 @@ class SearchMovie extends Component {
 
   componentDidMount() {
     if (this.props.match !== undefined) {
-      const { filmId } = this.props.match.params;
+      let { filmId } = this.props.match.params;
+      filmId = filmId.split("-")[1];
+
       this.searchByMovieId(filmId);
     }
   }
