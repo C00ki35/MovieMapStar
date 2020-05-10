@@ -153,6 +153,7 @@ class Profile extends React.Component {
             </div>
             <MovieInfo />
             <MovieInfo />
+            <MovieInfo />
           </main>
         )}
       </>

@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import Loading from "./Loading";
 import Posters from "./Posters";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 class MovieInfo extends Component {
   state = { movieInfo: "", movieInfoLoading: true };
@@ -27,6 +28,9 @@ class MovieInfo extends Component {
       "tt1375666",
       "tt0077651",
       "tt1206885",
+      "tt8936646",
+      "tt0089218",
+      "tt7349950",
     ];
 
     const filmToShow = Math.floor(Math.random() * filmIds.length);
@@ -44,9 +48,7 @@ class MovieInfo extends Component {
         return response.json();
       })
       .then((response) => {
-        this.setState({ movieInfo: response, movieInfoLoading: false }, () => {
-          console.log(this.state.movieInfo);
-        });
+        this.setState({ movieInfo: response, movieInfoLoading: false });
       })
       .catch((err) => {
         console.log(err);
@@ -77,21 +79,23 @@ class MovieInfo extends Component {
               </Grid>
               <Grid container xs={8}>
                 <Grid style={{ paddingTop: "20px" }} item xs={12}>
-                  <Typography variant="h7">
+                  <Typography variant="h5">
                     {this.state.movieInfo.title.title}
                   </Typography>
                   <Divider />
                   <Typography variant="body2" gutterBottom>
                     {`${this.state.movieInfo.plotOutline.text} (${this.state.movieInfo.title.year})`}
                   </Typography>
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    color="primary"
-                    type="submit"
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    to={`title-${this.state.movieInfo.id
+                      .replace("title", "")
+                      .replace(/[/]/g, "")}`}
                   >
-                    Find filming locations
-                  </Button>
+                    <Button variant="contained" fullWidth color="primary">
+                      SEE FILMING LOCATIONS
+                    </Button>
+                  </Link>
                 </Grid>
               </Grid>
             </Grid>

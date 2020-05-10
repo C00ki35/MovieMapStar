@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { BrowserRouter as useHistory } from "react-router-dom";
 import "typeface-roboto";
-import { Link, Container, Grid, Divider } from "@material-ui/core";
+import { Link, Container, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 const useStyles = (theme) => ({
   paper: {

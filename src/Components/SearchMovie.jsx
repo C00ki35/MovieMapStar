@@ -10,6 +10,7 @@ import { Button, TextField, Container, Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Loading from "./Loading";
+import Posters from "./Posters";
 
 const useStyles = (theme) => ({
   searchBox: {
@@ -27,7 +28,7 @@ const useStyles = (theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "green",
+    backgroundColor: "#f12b6a",
   },
   poster: {
     display: "flex",
@@ -58,7 +59,6 @@ class SearchMovie extends Component {
   };
 
   searchByMovieId = (profileMovieId) => {
-    console.log("Doing this");
     getMovieLocations(profileMovieId)
       .then((addresses) => {
         return Promise.all(addresses.map((address) => api.getLatLng(address)))
@@ -81,12 +81,6 @@ class SearchMovie extends Component {
         });
       });
   };
-
-  // componentDidUpdate() {
-  //   if (filmId !== undefined && !this.state.profileSearch) {
-  //     this.searchByMovieId(this.props.profileMovieId);
-  //   }
-  // }
 
   handleChange = (event) => {
     const { value } = event.target;
@@ -202,17 +196,18 @@ class SearchMovie extends Component {
                   component="main"
                   maxWidth="xs"
                 >
-                  <Grid item xs={6}>
-                    {this.state.movieInformation.title}
+                  <Grid
+                    item
+                    xs={6}
+                    style={{ display: "flex", flexWrap: "wrap" }}
+                  >
+                    <Typography color="secondary" component="h6" variant="h4">
+                      {this.state.movieInformation.title}
+                    </Typography>
                   </Grid>
                   <Grid className={classes.poster} item xs={6}>
-                    <img
-                      src={this.state.movieInformation.image.url}
-                      alt={`$this.state.movieInformation.title} poster`}
-                      style={{
-                        width: "60px",
-                        height: "90px",
-                      }}
+                    <Posters
+                      postergenre={this.state.movieInformation.image.url}
                     />
                   </Grid>
                 </Container>
